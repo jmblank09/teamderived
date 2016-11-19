@@ -67,6 +67,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Account has been registered!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "Kindly Complete the Fields", Toast.LENGTH_LONG).show();
                     }
