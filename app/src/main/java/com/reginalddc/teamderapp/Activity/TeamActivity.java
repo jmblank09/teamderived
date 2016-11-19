@@ -37,7 +37,7 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
         dlgAlert.setPositiveButton("No",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getApplicationContext(), user.getUserID(), Toast.LENGTH_LONG).show();
+                        //do nothing
                     }
                 });
 

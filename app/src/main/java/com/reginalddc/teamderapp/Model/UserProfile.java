@@ -17,6 +17,7 @@ public class UserProfile {
     private static String  course;
     private static String  yearLevel;
     private static String  mainRole;
+    private static String  otherRole;
     private static String  achievements;
     private static String  extraCo;
 
@@ -113,5 +114,29 @@ public class UserProfile {
     public static void setExtraCo(String extraCo) {
         UserProfile.extraCo = extraCo;
     }
-    
+
+    public static String getOtherRole() {
+        return otherRole;
+    }
+
+    public static void setOtherRole(String otherRole) {
+        UserProfile.otherRole = otherRole;
+    }
+
+    public void retrievalData(){
+        try{
+            fullName = obj.getJSONObject("profile").getString("name");
+            email = obj.getJSONObject("profile").getString("email");
+            phoneNumber = obj.getJSONObject("profile").getString("phone");
+            birthday = obj.getJSONObject("profile").getString("birthday");
+            school = obj.getJSONObject("profile").getString("school");
+            course = obj.getJSONObject("profile").getString("course");
+            yearLevel = obj.getJSONObject("profile").getString("year_level");
+            mainRole = obj.getJSONObject("profile").getString("main_role");
+            achievements = obj.getJSONObject("profile").getString("achievements");
+            extraCo = obj.getJSONObject("profile").getString("extracuricular");
+            otherRole = obj.getJSONObject("profile").getString("other_roles");
+
+        }catch(Exception e){}
+    }
 }

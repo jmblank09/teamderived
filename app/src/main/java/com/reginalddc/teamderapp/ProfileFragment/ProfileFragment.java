@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -30,8 +32,10 @@ import org.json.JSONObject;
  */
 public class ProfileFragment extends Fragment {
 
-
+    View fragmentView;
     private OnEditProfile _toEditProfile, _logout;
+    TextView fname, email, bday, number, school, course, year,
+        mainRole, otherRole, achievements, seminar;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -41,7 +45,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fragmentView = inflater.inflate(R.layout.fragment_profile, container, false);
+        fragmentView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         ImageView editProfile = (ImageView) fragmentView.findViewById(R.id.imageView_editProfile);
         editProfile.setOnClickListener(new View.OnClickListener() {
@@ -78,13 +82,22 @@ public class ProfileFragment extends Fragment {
                 try{
 
                     JSONObject obj = new JSONObject(response);
-
+                    UserProfile user = new UserProfile(obj);
+                    user.retrievalData();
                 }catch(Exception e){
                     Toast.makeText(getContext(), "Error Occured!", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    public void willView(){
+
+        fname = (TextView) fragmentView.findViewById(R.id.editText_fname);
+        email = (TextView) fragmentView.findViewById(R.id.editText_email);
+        bday = (TextView) fragmentView.findViewById(R.id.editText_birthday);
+
     }
 
     @Override
