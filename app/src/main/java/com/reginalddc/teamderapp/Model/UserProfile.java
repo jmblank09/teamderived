@@ -113,20 +113,5 @@ public class UserProfile {
     public static void setExtraCo(String extraCo) {
         UserProfile.extraCo = extraCo;
     }
-
-    public void retrievalData(){
-        try{
-            address1 = obj.getJSONObject("studentInfoBean").getString("address1");
-            address2 = obj.getJSONObject("studentInfoBean").getString("address2");
-            birthDate = obj.getJSONObject("studentInfoBean").getString("birthDate");
-            entryYear = obj.getJSONObject("studentInfoBean").getString("entryYear");
-            fatherName = obj.getJSONObject("studentInfoBean").getString("fatherName");
-            motherName = obj.getJSONObject("studentInfoBean").getString("motherName");
-            parentAddress = obj.getJSONObject("studentInfoBean").getString("parentsAddress");
-            sex = obj.getJSONObject("studentInfoBean").getString("sex");
-            studentName = obj.getJSONObject("studentInfoBean").getString("studentName");
-            studentNoText = obj.getJSONObject("studentInfoBean").getString("studentNoText");
-
-        }catch(Exception e){}
-    }
+    
 }
