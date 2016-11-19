@@ -90,10 +90,7 @@ public class ProfileFragment extends Fragment {
                     UserProfile user = new UserProfile(obj);
                     user.retrievalData();
                     willView();
-                }catch(Exception e){
-                    Toast.makeText(getContext(), "Error Occured!", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                }
+                }catch(Exception e){}
             }
         });
     }
@@ -105,7 +102,7 @@ public class ProfileFragment extends Fragment {
         bday = (TextView) fragmentView.findViewById(R.id.editText_birthday);
         number = (TextView) fragmentView.findViewById(R.id.editText_mobileNumber);
         school = (TextView) fragmentView.findViewById(R.id.editText_school);
-        course = (TextView) fragmentView.findViewById(R.id.course);
+        course = (TextView) fragmentView.findViewById(R.id.editText_course);
         year = (TextView) fragmentView.findViewById(R.id.editText_yearLevel);
         mainRole = (TextView) fragmentView.findViewById(R.id.editText_mainRole);
         otherRole = (TextView) fragmentView.findViewById(R.id.editText_preferredRoles);
@@ -114,7 +111,14 @@ public class ProfileFragment extends Fragment {
 
         fname.setText(UserProfile.getFullName());
         email.setText(UserProfile.getEmail());
-        
+        number.setText(UserProfile.getPhoneNumber());
+        school.setText(UserProfile.getSchool());
+        course.setText(UserProfile.getCourse());
+        year.setText(UserProfile.getYearLevel());
+        mainRole.setText(UserProfile.getMainRole());
+        otherRole.setText(UserProfile.getOtherRole());
+        achievements.setText(UserProfile.getAchievements());
+        seminar.setText(UserProfile.getExtraCo());
 
     }
 

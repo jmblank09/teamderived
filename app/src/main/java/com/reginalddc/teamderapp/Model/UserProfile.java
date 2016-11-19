@@ -125,17 +125,47 @@ public class UserProfile {
 
     public void retrievalData(){
         try{
+            JSONObject object = obj.getJSONObject("profile");
             fullName = obj.getJSONObject("profile").getString("name");
             email = obj.getJSONObject("profile").getString("email");
-            phoneNumber = obj.getJSONObject("profile").getString("phone");
-            birthday = obj.getJSONObject("profile").getString("birthday");
-            school = obj.getJSONObject("profile").getString("school");
-            course = obj.getJSONObject("profile").getString("course");
-            yearLevel = obj.getJSONObject("profile").getString("year_level");
-            mainRole = obj.getJSONObject("profile").getString("main_role");
-            achievements = obj.getJSONObject("profile").getString("achievements");
-            extraCo = obj.getJSONObject("profile").getString("extracuricular");
-            otherRole = obj.getJSONObject("profile").getString("other_roles");
+
+            if(object.getString("phone").equals("")) {
+                phoneNumber = "";
+            }else{
+                phoneNumber = object.getString("phone");
+            }
+
+            if(!object.getString("birthday").equals("null")) {
+                birthday = object.getString("birthday");
+            }else { birthday = ""; }
+
+            if(!object.getString("school").equals("null")) {
+                school = object.getString("school");
+            }else { school = ""; }
+
+            if(!object.getString("course").equals("null")) {
+                course = object.getString("course");
+            }else { course = ""; }
+
+            if(!object.getString("year_level").equals("null")) {
+                yearLevel = object.getString("year_level");
+            }else { yearLevel = ""; }
+
+            if(!object.getString("main_role").equals("null")) {
+                mainRole = object.getString("main_role");
+            }else { mainRole = ""; }
+
+            if(!object.getString("achievements").equals("null")) {
+                achievements = object.getString("achievements");
+            }else { achievements = ""; }
+
+            if(!object.getString("extracuricular").equals("null")) {
+                extraCo = object.getString("extracuricular");
+            }else { extraCo = ""; }
+
+            if(!object.getString("other_roles").equals("null")) {
+                otherRole = object.getString("other_roles");
+            }else { otherRole = ""; }
 
         }catch(Exception e){}
     }

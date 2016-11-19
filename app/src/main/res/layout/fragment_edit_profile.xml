@@ -75,14 +75,14 @@
                     <EditText
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="Zishran Julbert Garces"
+                        android:hint="Add a name"
                         android:textColor="#000000"
                         android:gravity="left"
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
                         android:paddingLeft="10dp"
-                        android:id="@+id/name"
+                        android:id="@+id/editText_name"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
                         android:layout_marginBottom="2dp"
@@ -106,13 +106,14 @@
                     <EditText
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="zishgarces@gmail.com"
+                        android:hint="Add an email"
                         android:textColor="#000000"
                         android:gravity="left"
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/email"
+                        android:inputType="textEmailAddress"
+                        android:id="@+id/editText_email"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -141,7 +142,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/birthday"
+                        android:id="@+id/editText_birthday"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -171,7 +172,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/mobileNum"
+                        android:id="@+id/editText_mobileNum"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -201,7 +202,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/school"
+                        android:id="@+id/editText_school"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -231,7 +232,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/course"
+                        android:id="@+id/editText_course"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -261,7 +262,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/yearLevel"
+                        android:id="@+id/editText_yearLevel"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -320,7 +321,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/mainRole"
+                        android:id="@+id/editText_mainRole"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -350,7 +351,7 @@
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
                         android:layout_marginRight="10dp"
-                        android:id="@+id/preferredRole"
+                        android:id="@+id/editText_preferredRole"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
@@ -395,8 +396,9 @@
                     <EditText
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="Zishran Julbert Garces"
+                        android:hint="Ex: Dev Cup Champion"
                         android:layout_marginLeft="10dp"
+                        android:id="@+id/editText_achievements"
                         android:textColor="#000000"
                         android:gravity="left"
                         android:background="@drawable/textarea_border"
@@ -466,12 +468,13 @@
                     <EditText
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="Zishran Julbert Garces"
+                        android:hint="Ex: Dev Cup Seminar"
                         android:layout_marginLeft="10dp"
                         android:textColor="#000000"
                         android:gravity="left"
                         android:background="@drawable/textarea_border"
                         android:textSize="15dp"
+                        android:id="@+id/editText_seminars"
                         android:layout_marginRight="10dp"
                         android:paddingLeft="10dp"
                         android:paddingBottom="5dp"
@@ -486,19 +489,19 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
 
-                    EditText
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Zishran Julbert Garces"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#000000"
-                    android:gravity="left"
-                    android:background="@drawable/textarea_border"
-                    android:textSize="15dp"
-                    android:layout_marginRight="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"/>
+                    <!--<EditText-->
+                    <!--android:layout_width="150dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Zishran Julbert Garces"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:textColor="#000000"-->
+                    <!--android:gravity="left"-->
+                    <!--android:background="@drawable/textarea_border"-->
+                    <!--android:textSize="15dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:paddingBottom="5dp"-->
+                    <!--android:paddingTop="5dp"/>-->
                 </TableRow>
             </TableLayout>
             <Button
