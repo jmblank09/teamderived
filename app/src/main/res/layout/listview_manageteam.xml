@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/table_border"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView_teamLogo"
+                android:src="@drawable/profile_picture"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Apolinario Mabini"
+                    android:id="@+id/textView_memName"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/imageView2"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Front-End"
+                android:id="@+id/textView_memDesc"
+                android:textColor="@color/subtextColor"
+                android:textSize="20sp"
+                android:layout_marginLeft="1dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/profileView"
+                android:id="@+id/textView7"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="right"
+                android:textSize="14sp"
+                android:textColor="@color/managetextColor"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

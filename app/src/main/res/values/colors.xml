@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#000</color>
+    <color name="headerBackground">#2ECC71</color>
+    <color name="loginButton">#82e3aa</color>
+    <color name="backgroundColor">#f2f2f2 </color>
+    <color name="whiteColor">#FFF</color>
+    <color name="subtextColor">#999</color>
+    <color name="managetextColor">#3498DB</color>
+    <color name="titletextColor">#2ecc71</color>
+    <color name="gray">#b8b894</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">TeamDerived</string>
+    <string name="createAccount">Create an Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="teamName">Team Name:</string>
+    <string name="teamManage">▲ Manage Team</string>
+    <string name="teamView">▲ View Team</string>
+    <string name="mobileNum">Mobile Number: </string>
+    <string name="birthday">Birthday: </string>
+    <string name="email">Email: </string>
+    <string name="name">Name: </string>
+    <string name="school">School: </string>
+    <string name="course">Course: </string>
+    <string name="yearLvl">Year Level: </string>
+    <string name="mainRole">Main role in a team: </string>
+    <string name="preffered">Preferred Roles: </string>
+    <string name="createTeam">Create Team</string>
+    <string name="teamLeader">Team Leader: </string>
+    <string name="members">No. of Members:</string>
+    <string name="desc">Description:</string>
+    <string name="next">Next</string>
+    <string name="member1">Member 1:</string>
+    <string name="member2">Member 2:</string>
+    <string name="member3">Member 3:</string>
+    <string name="role1">Role 1:</string>
+    <string name="letterimage">letterImage</string>
+    <string name="tags"><![CDATA[<Tags>]]></string>
+    <string name="TeamName">teamBA</string>
+    <string name="backEnd">Backend:</string>
+    <string name="frontend">Frontend:</string>
+    <string name="pitcher">Pitcher:</string>
+    <string name="none">None</string>
+    <string name="designer">Designer:</string>
+    <string name="joinTeam">▲ Join Team</string>
+    <string name="searcher">Search for a team</string>
+    <string name="profileView">▲ View Profile</string>
+</resources>

@@ -1,0 +1,132 @@
+package com.reginalddc.teamderapp.Model;
+
+import org.json.JSONObject;
+
+/**
+ * Created by reginalddc on 19/11/2016.
+ */
+public class UserProfile {
+
+    private JSONObject obj;
+    private static int userID;
+    private static String fullName;
+    private static String email;
+    private static String  phoneNumber;
+    private static String  birthday;
+    private static String  school;
+    private static String  course;
+    private static String  yearLevel;
+    private static String  mainRole;
+    private static String  achievements;
+    private static String  extraCo;
+
+    public UserProfile (){}
+
+    public UserProfile (JSONObject obj){
+        this.obj = obj;
+    }
+
+    public static int getUserID() {
+        return userID;
+    }
+
+    public static void setUserID(int userID) {
+        UserProfile.userID = userID;
+    }
+
+    public static String getFullName() {
+        return fullName;
+    }
+
+    public static void setFullName(String fullName) {
+        UserProfile.fullName = fullName;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        UserProfile.email = email;
+    }
+
+    public static String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public static void setPhoneNumber(String phoneNumber) {
+        UserProfile.phoneNumber = phoneNumber;
+    }
+
+    public static String getBirthday() {
+        return birthday;
+    }
+
+    public static void setBirthday(String birthday) {
+        UserProfile.birthday = birthday;
+    }
+
+    public static String getSchool() {
+        return school;
+    }
+
+    public static void setSchool(String school) {
+        UserProfile.school = school;
+    }
+
+    public static String getCourse() {
+        return course;
+    }
+
+    public static void setCourse(String course) {
+        UserProfile.course = course;
+    }
+
+    public static String getYearLevel() {
+        return yearLevel;
+    }
+
+    public static void setYearLevel(String yearLevel) {
+        UserProfile.yearLevel = yearLevel;
+    }
+
+    public static String getMainRole() {
+        return mainRole;
+    }
+
+    public static void setMainRole(String mainRole) {
+        UserProfile.mainRole = mainRole;
+    }
+
+    public static String getAchievements() {
+        return achievements;
+    }
+
+    public static void setAchievements(String achievements) {
+        UserProfile.achievements = achievements;
+    }
+
+    public static String getExtraCo() {
+        return extraCo;
+    }
+
+    public static void setExtraCo(String extraCo) {
+        UserProfile.extraCo = extraCo;
+    }
+
+    public void retrievalData(){
+        try{
+            address1 = obj.getJSONObject("studentInfoBean").getString("address1");
+            address2 = obj.getJSONObject("studentInfoBean").getString("address2");
+            birthDate = obj.getJSONObject("studentInfoBean").getString("birthDate");
+            entryYear = obj.getJSONObject("studentInfoBean").getString("entryYear");
+            fatherName = obj.getJSONObject("studentInfoBean").getString("fatherName");
+            motherName = obj.getJSONObject("studentInfoBean").getString("motherName");
+            parentAddress = obj.getJSONObject("studentInfoBean").getString("parentsAddress");
+            sex = obj.getJSONObject("studentInfoBean").getString("sex");
+            studentName = obj.getJSONObject("studentInfoBean").getString("studentName");
+            studentNoText = obj.getJSONObject("studentInfoBean").getString("studentNoText");
+
+        }catch(Exception e){}
+    }
+}
