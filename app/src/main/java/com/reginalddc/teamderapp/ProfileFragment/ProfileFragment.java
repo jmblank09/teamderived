@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,10 @@ import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.R;
 
 import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -84,6 +89,7 @@ public class ProfileFragment extends Fragment {
                     JSONObject obj = new JSONObject(response);
                     UserProfile user = new UserProfile(obj);
                     user.retrievalData();
+                    willView();
                 }catch(Exception e){
                     Toast.makeText(getContext(), "Error Occured!", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
@@ -97,6 +103,18 @@ public class ProfileFragment extends Fragment {
         fname = (TextView) fragmentView.findViewById(R.id.editText_fname);
         email = (TextView) fragmentView.findViewById(R.id.editText_email);
         bday = (TextView) fragmentView.findViewById(R.id.editText_birthday);
+        number = (TextView) fragmentView.findViewById(R.id.editText_mobileNumber);
+        school = (TextView) fragmentView.findViewById(R.id.editText_school);
+        course = (TextView) fragmentView.findViewById(R.id.course);
+        year = (TextView) fragmentView.findViewById(R.id.editText_yearLevel);
+        mainRole = (TextView) fragmentView.findViewById(R.id.editText_mainRole);
+        otherRole = (TextView) fragmentView.findViewById(R.id.editText_preferredRoles);
+        achievements = (TextView) fragmentView.findViewById(R.id.editText_achievements);
+        seminar = (TextView) fragmentView.findViewById(R.id.editText_seminars);
+
+        fname.setText(UserProfile.getFullName());
+        email.setText(UserProfile.getEmail());
+        
 
     }
 

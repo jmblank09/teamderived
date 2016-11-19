@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="None"
-                    android:id="@+id/yearLevel"
+                    android:id="@+id/editText_yearLevel"
                     android:layout_below="@+id/editText_course"
                     android:textColor="@color/black"
                     android:layout_toRightOf="@+id/textView20"
