@@ -87,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:id="@+id/editText_fname"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/black"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/textView9"
@@ -111,6 +112,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/black"
                     android:id="@+id/editText_email"
+                    android:paddingLeft="5dp"
                     android:layout_below="@+id/textView9"
                     android:layout_toRightOf="@+id/textView10"
                     android:layout_toEndOf="@+id/textView10" />
@@ -136,7 +138,8 @@
                     android:id="@+id/editText_birthday"
                     android:layout_alignBottom="@+id/textView12"
                     android:layout_toRightOf="@+id/textView12"
-                    android:layout_toEndOf="@+id/textView12" />
+                    android:layout_toEndOf="@+id/textView12"
+                    android:paddingLeft="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,7 +162,8 @@
                     android:id="@+id/editText_mobileNumber"
                     android:layout_alignTop="@+id/textView14"
                     android:layout_toRightOf="@+id/textView14"
-                    android:layout_toEndOf="@+id/textView14" />
+                    android:layout_toEndOf="@+id/textView14"
+                    android:paddingLeft="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -182,7 +186,8 @@
                     android:id="@+id/editText_school"
                     android:layout_alignBottom="@+id/textView16"
                     android:layout_toRightOf="@+id/textView16"
-                    android:layout_toEndOf="@+id/textView16" />
+                    android:layout_toEndOf="@+id/textView16"
+                    android:paddingLeft="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,7 +211,8 @@
                     android:layout_alignTop="@+id/textView18"
                     android:layout_toRightOf="@+id/textView18"
                     android:layout_marginBottom="2dp"
-                    android:layout_toEndOf="@+id/textView18" />
+                    android:layout_toEndOf="@+id/textView18"
+                    android:paddingLeft="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -228,7 +234,8 @@
                     android:layout_below="@+id/editText_course"
                     android:textColor="@color/black"
                     android:layout_toRightOf="@+id/textView20"
-                    android:layout_toEndOf="@+id/textView20" />
+                    android:layout_toEndOf="@+id/textView20"
+                    android:paddingLeft="5dp"/>
             </RelativeLayout>
 
 
@@ -277,7 +284,8 @@
                     android:textColor="@color/black"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/textMainRole"
-                    android:layout_toEndOf="@+id/textMainRole" />
+                    android:layout_toEndOf="@+id/textMainRole"
+                    android:paddingLeft="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -300,7 +308,8 @@
                     android:id="@+id/editText_preferredRoles"
                     android:layout_below="@+id/textMainRole"
                     android:layout_toRightOf="@+id/textPrefer"
-                    android:layout_toEndOf="@+id/textPrefer" />
+                    android:layout_toEndOf="@+id/textPrefer"
+                    android:paddingLeft="5dp"/>
             </RelativeLayout>
 
             <RelativeLayout

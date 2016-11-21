@@ -9,6 +9,7 @@ public class UserProfile {
 
     private JSONObject obj;
     private static int userID;
+    private static String password;
     private static String fullName;
     private static String email;
     private static String  phoneNumber;
@@ -123,13 +124,22 @@ public class UserProfile {
         UserProfile.otherRole = otherRole;
     }
 
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        UserProfile.password = password;
+    }
+
     public void retrievalData(){
         try{
             JSONObject object = obj.getJSONObject("profile");
-            fullName = obj.getJSONObject("profile").getString("name");
-            email = obj.getJSONObject("profile").getString("email");
+            fullName = object.getString("name");
+            email = object.getString("email");
+            password = object.getString("password");
 
-            if(object.getString("phone").equals("")) {
+            if(object.getString("phone").equals("") || (object.getString("phone").equals("null"))) {
                 phoneNumber = "";
             }else{
                 phoneNumber = object.getString("phone");

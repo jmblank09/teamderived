@@ -42,15 +42,20 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     public void createAccount(View v){
+
         String mail = email.getText().toString();
         String name = username.getText().toString();
         String pass = password.getText().toString();
 
-        RequestParams params = new RequestParams();
-        params.put("name", name);
-        params.put("email", mail);
-        params.put("password", pass);
-        invokeWS(params);
+        if (!(mail.matches("") || name.matches("") || pass.matches(""))) {
+            RequestParams params = new RequestParams();
+            params.put("name", name);
+            params.put("email", mail);
+            params.put("password", pass);
+            invokeWS(params);
+        }else{
+            Toast.makeText(getApplicationContext(), "Kindly Complete the Fields", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void invokeWS(RequestParams params){

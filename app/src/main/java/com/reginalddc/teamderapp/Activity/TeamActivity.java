@@ -18,7 +18,7 @@ import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
 import com.reginalddc.teamderapp.R;
 import com.reginalddc.teamderapp.SearchFragment.SearchFragment;
 
-public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile {
+public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile {
 
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
@@ -28,6 +28,12 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
         willView();
+    }
+
+    @Override
+    public void toProfile(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ProfileFragment()).commit();
     }
 
     @Override
