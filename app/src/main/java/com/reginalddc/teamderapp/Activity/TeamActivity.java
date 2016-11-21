@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.reginalddc.teamderapp.CreateTeamFragment.CreateTeam2Fragment;
 import com.reginalddc.teamderapp.CreateTeamFragment.CreateTeamFragment;
 import com.reginalddc.teamderapp.HomePageFragment.HomeFragment;
 import com.reginalddc.teamderapp.ManageFragment.ManageTeamFragment;
@@ -21,7 +22,7 @@ import com.reginalddc.teamderapp.R;
 import com.reginalddc.teamderapp.SearchFragment.SearchFragment;
 
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
-        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam {
+        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2 {
 
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
@@ -84,6 +85,12 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     public void toGotoRequestTeam(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_layout, new RequestToJoinTeamFragment()).commit();
+    }
+
+    @Override
+    public void toGotoCreateTeam2(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new CreateTeam2Fragment()).commit();
     }
 
     private void willView(){

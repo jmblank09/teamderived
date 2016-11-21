@@ -1,11 +1,15 @@
 package com.reginalddc.teamderapp.CreateTeamFragment;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.reginalddc.teamderapp.R;
 
@@ -13,7 +17,9 @@ import com.reginalddc.teamderapp.R;
  * A simple {@link Fragment} subclass.
  */
 public class CreateTeamFragment extends Fragment {
-
+    EditText editText_numOfMem;
+    Button nextBtn;
+    private onGoToCreateTeam2 _onGoToCreateTeam2;
 
     public CreateTeamFragment() {
         // Required empty public constructor
@@ -24,7 +30,42 @@ public class CreateTeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_team, container, false);
+
+        View fragmentView = inflater.inflate(R.layout.fragment_create_team, container, false);
+        editText_numOfMem = (EditText)fragmentView.findViewById(R.id.editText_numOfMember);
+        nextBtn = (Button)fragmentView.findViewById(R.id.nextBtn);
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _onGoToCreateTeam2.toGotoCreateTeam2();
+            }
+        });
+
+        return fragmentView;
+    }
+
+    @Override
+    public void onAttach(Activity activity){
+        super.onAttach(activity);
+
+        try{
+            _onGoToCreateTeam2 = (onGoToCreateTeam2) activity;
+        }catch (Exception ex){
+
+            throw new RuntimeException(activity.toString() + " must implement onGoToCreateTeam2");
+
+        }
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        _onGoToCreateTeam2 = null;
+    }
+
+    public interface onGoToCreateTeam2 {
+
+        public void toGotoCreateTeam2();
     }
 
 }

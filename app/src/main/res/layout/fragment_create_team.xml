@@ -63,7 +63,7 @@
                     android:layout_height="30dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Zishran Julbert Garces"
-                    android:id="@+id/name"
+                    android:id="@+id/teamLeader"
                     android:textColor="@color/black"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/textView9"
@@ -127,7 +127,7 @@
                     android:background="@drawable/textarea_border"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/black"
-                    android:id="@+id/birthday"
+                    android:id="@+id/editText_numOfMember"
                     android:inputType="number"
                     android:textSize="20dp"
                     android:hint="4"
@@ -156,7 +156,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:id="@+id/editText3"
+                    android:id="@+id/editText_desc"
                     android:layout_below="@+id/textView14"
                     android:layout_above="@+id/nextBtn"
                     android:layout_alignParentRight="true"
@@ -179,14 +179,13 @@
                     android:background="@drawable/next_button"
                     android:text="@string/next"
                     android:id="@+id/nextBtn"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignRight="@+id/editText3"
-                    android:layout_alignEnd="@+id/editText3"
-                    android:layout_alignLeft="@+id/editText3"
-                    android:layout_alignStart="@+id/editText3"
                     android:textStyle="bold"
                     android:textSize="17dp"
-                    />
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/editText_desc"
+                    android:layout_alignStart="@+id/editText_desc"
+                    android:layout_alignRight="@+id/editText_desc"
+                    android:layout_alignEnd="@+id/editText_desc" />
 
 
             </RelativeLayout>

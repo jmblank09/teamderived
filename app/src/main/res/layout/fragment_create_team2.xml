@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Zishran Julbert Garces"
-                    android:id="@+id/name"
+                    android:id="@+id/teamLeader"
                     android:textColor="@color/black"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/textView9"
@@ -97,15 +97,16 @@
                     android:padding="10dp" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="40dp"
-                    android:id="@+id/spinner"
+                    android:id="@+id/spinner1"
                     android:layout_alignBottom="@+id/textView11"
                     android:layout_toRightOf="@+id/textView11"
                     android:layout_alignRight="@+id/name"
                     android:layout_alignEnd="@+id/name"
                     android:background="@drawable/textarea_border"
                     android:paddingLeft="10dp"
+                    android:layout_marginRight="20dp"
                     />
 
 
@@ -139,7 +140,7 @@
                     android:padding="10dp" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:id="@+id/spinner2"
                     android:layout_alignBottom="@+id/textView13"
@@ -147,7 +148,8 @@
                     android:layout_alignRight="@+id/name"
                     android:layout_alignEnd="@+id/name"
                     android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp"
+                    android:layout_marginRight="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -179,7 +181,7 @@
                     android:padding="10dp" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:id="@+id/spinner3"
                     android:layout_alignBottom="@+id/textView15"
@@ -187,7 +189,8 @@
                     android:layout_alignRight="@+id/name"
                     android:layout_alignEnd="@+id/name"
                     android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp"
+                    android:layout_marginRight="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -219,7 +222,7 @@
                     android:padding="10dp" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:id="@+id/spinner4"
                     android:layout_alignBottom="@+id/textView17"
@@ -228,6 +231,7 @@
                     android:layout_alignEnd="@+id/name"
                     android:background="@drawable/textarea_border"
                     android:paddingLeft="10dp"
+                    android:layout_marginRight="20dp"
                     />
 
                 <Button
@@ -236,7 +240,7 @@
                     android:background="@drawable/next_button"
                     android:textColor="@color/white"
                     android:text="@string/createTeam"
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_CreateTeam"
                     android:layout_below="@+id/textView17"
                     android:layout_alignLeft="@+id/textView17"
                     android:layout_alignStart="@+id/textView17"
