@@ -114,7 +114,7 @@ public class EditProfileFragment extends Fragment {
     private void willView(){
         name = (EditText) fragmentView.findViewById(R.id.editText_name);
         email = (EditText) fragmentView.findViewById(R.id.editText_email);
-        phone = (EditText) fragmentView.findViewById(R.id.editText_mobileNum);
+        phone = (EditText) fragmentView.findViewById(R.id. editText_mobileNum);
         birthday = (EditText) fragmentView.findViewById(R.id.editText_birthday);
         school = (EditText) fragmentView.findViewById(R.id.editText_school);
         course = (EditText) fragmentView.findViewById(R.id.editText_course);

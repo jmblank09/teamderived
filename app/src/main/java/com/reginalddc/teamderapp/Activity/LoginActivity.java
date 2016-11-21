@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         mPager = (AutoScrollViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-        mPager.setInterval(3000);
+        mPager.setInterval(4000);
         mPager.setScrollDurationFactor(3);
         mPager.startAutoScroll();
 

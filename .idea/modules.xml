@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/JavaJSONParser/JavaJSONParser.iml" filepath="$PROJECT_DIR$/JavaJSONParser/JavaJSONParser.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeamDerApp.iml" filepath="$PROJECT_DIR$/TeamDerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teamderived.iml" filepath="$PROJECT_DIR$/teamderived.iml" />
       <module fileurl="file://$PROJECT_DIR$/webServiceAsyncTask/webServiceAsyncTask.iml" filepath="$PROJECT_DIR$/webServiceAsyncTask/webServiceAsyncTask.iml" />
     </modules>
   </component>

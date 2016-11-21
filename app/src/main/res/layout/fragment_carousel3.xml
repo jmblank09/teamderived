@@ -15,6 +15,35 @@
         android:background="@drawable/carousel_border"
         android:backgroundTint="@color/white">
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/carouselImage4"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/code"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Code"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#595959"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:text="Practice coding with your team before entering a competition!"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 
 </FrameLayout>
