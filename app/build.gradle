@@ -24,6 +24,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':JavaJSONParser')
     compile project(':webServiceAsyncTask')
+    compile ('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+        exclude module: 'support-v4'
+    }
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
 }

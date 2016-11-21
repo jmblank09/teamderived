@@ -26,13 +26,11 @@
                 android:src="@drawable/icon_loading_page"/>
         </RelativeLayout>
 
-        <RelativeLayout
+        <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+            android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:id="@+id/homeCarousel">
-
-
-        </RelativeLayout>
+            android:layout_height="200dp"
+            android:layout_marginBottom="20dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
