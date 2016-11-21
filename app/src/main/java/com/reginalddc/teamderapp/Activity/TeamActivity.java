@@ -8,17 +8,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.reginalddc.teamderapp.CreateTeamFragment.CreateTeamFragment;
 import com.reginalddc.teamderapp.HomePageFragment.HomeFragment;
+import com.reginalddc.teamderapp.ManageFragment.ManageTeamFragment;
+import com.reginalddc.teamderapp.ManageFragment.RequestToJoinTeamFragment;
+import com.reginalddc.teamderapp.ManageFragment.ViewTeamFragment;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.ProfileFragment.EditProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
 import com.reginalddc.teamderapp.R;
 import com.reginalddc.teamderapp.SearchFragment.SearchFragment;
 
-public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile {
+public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
+        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam {
 
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
@@ -49,7 +52,7 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
 
         dlgAlert.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,6 +66,24 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     public void toEditProfile(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_layout, new EditProfileFragment()).commit();
+    }
+
+    @Override
+    public void toGotoCreatedTeam(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();
+    }
+
+    @Override
+    public void toGotoManageTeam(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
+    }
+
+    @Override
+    public void toGotoRequestTeam(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new RequestToJoinTeamFragment()).commit();
     }
 
     private void willView(){

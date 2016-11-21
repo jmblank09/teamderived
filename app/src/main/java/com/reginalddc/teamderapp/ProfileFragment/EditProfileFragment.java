@@ -3,7 +3,6 @@ package com.reginalddc.teamderapp.ProfileFragment;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.reginalddc.teamderapp.Activity.MainActivity;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.R;
 
@@ -113,7 +111,7 @@ public class EditProfileFragment extends Fragment {
         });
     }
 
-    public void willView(){
+    private void willView(){
         name = (EditText) fragmentView.findViewById(R.id.editText_name);
         email = (EditText) fragmentView.findViewById(R.id.editText_email);
         phone = (EditText) fragmentView.findViewById(R.id.editText_mobileNum);

@@ -95,7 +95,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    public void willView(){
+    private void willView(){
 
         fname = (TextView) fragmentView.findViewById(R.id.editText_fname);
         email = (TextView) fragmentView.findViewById(R.id.editText_email);
@@ -120,6 +120,14 @@ public class ProfileFragment extends Fragment {
         achievements.setText(UserProfile.getAchievements());
         seminar.setText(UserProfile.getExtraCo());
 
+        try {
+            String dateString = UserProfile.getBirthday();
+            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = inputFormat.parse(dateString);
+            SimpleDateFormat outputFormat = new SimpleDateFormat("MMMM dd, yyyy");
+            String dateParsed = outputFormat.format(date);
+            bday.setText(dateParsed);
+        }catch (Exception e){}
     }
 
     @Override

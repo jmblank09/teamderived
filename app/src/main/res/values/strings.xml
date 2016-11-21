@@ -36,4 +36,5 @@
     <string name="joinTeam">▲ Join Team</string>
     <string name="searcher">Search for a team</string>
     <string name="profileView">▲ View Profile</string>
+    <string name="tapHereForRequestOfEmptyRoles"><u>Tap here for request of empty roles</u></string>
 </resources>

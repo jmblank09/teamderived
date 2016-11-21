@@ -148,7 +148,7 @@
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
                         android:layout_marginBottom="2dp"
-                        android:hint="Add a birthday" />
+                        android:hint="Add a birthday (ex. 1996-12-25)" />
                 </TableRow>
 
                 <TableRow

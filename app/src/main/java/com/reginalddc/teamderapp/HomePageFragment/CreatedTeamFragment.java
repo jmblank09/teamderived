@@ -3,6 +3,7 @@ package com.reginalddc.teamderapp.HomePageFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.reginalddc.teamderapp.ManageFragment.ManageTeamFragment;
+import com.reginalddc.teamderapp.ManageFragment.ViewTeamFragment;
 import com.reginalddc.teamderapp.Model.CreatedTeamAdapter;
 import com.reginalddc.teamderapp.Model.Team;
 import com.reginalddc.teamderapp.R;
@@ -43,9 +46,12 @@ public class CreatedTeamFragment extends Fragment {
         adapter.add(firstTeam);
         adapter.add(secondTeam);
 
+        final FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
                 Toast.makeText(getContext(), adapter.getItem(position).teamName, Toast.LENGTH_LONG).show();
             }
         });

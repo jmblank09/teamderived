@@ -48,6 +48,11 @@
                     android:text="Apolinario Mabini"
                     android:id="@+id/textView_memName"
                     android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/imageView2"/>
             </LinearLayout>
 
             <TextView
@@ -57,14 +62,14 @@
                 android:text="Front-End"
                 android:id="@+id/textView_memDesc"
                 android:textColor="@color/subtextColor"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:layout_marginLeft="1dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/profileView"
+                android:text="▲ View Profile"
                 android:id="@+id/textView7"
                 android:layout_marginTop="6dp"
                 android:layout_gravity="right"
