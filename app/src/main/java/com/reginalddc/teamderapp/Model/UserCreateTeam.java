@@ -9,6 +9,8 @@ public class UserCreateTeam {
 
     private JSONObject obj;
     private static int numOfMembers;
+    private static String teamName;
+    private static String teamDesc;
 
     public UserCreateTeam() {}
 
@@ -20,5 +22,21 @@ public class UserCreateTeam {
 
     public static void setNumOfMembers(int numOfMembers) {
         UserCreateTeam.numOfMembers = numOfMembers;
+    }
+
+    public static String getTeamName() {
+        return teamName;
+    }
+
+    public static void setTeamName(String teamName) {
+        UserCreateTeam.teamName = teamName;
+    }
+
+    public static String getTeamDesc() {
+        return teamDesc;
+    }
+
+    public static void setTeamDesc(String teamDesc) {
+        UserCreateTeam.teamDesc = teamDesc;
     }
 }

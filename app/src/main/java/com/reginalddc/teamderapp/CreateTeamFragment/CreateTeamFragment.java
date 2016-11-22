@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.reginalddc.teamderapp.Model.UserCreateTeam;
 import com.reginalddc.teamderapp.Model.UserProfile;
@@ -47,8 +48,23 @@ public class CreateTeamFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                UserCreateTeam.setNumOfMembers(Integer.parseInt(members.getText().toString()));
-                _onGoToCreateTeam2.toGotoCreateTeam2();
+                String member = members.getText().toString();
+                String teamN = teamName.getText().toString();
+                String teamD = teamDesc.getText().toString();
+
+                if (!(member.matches("")) && !(teamN.matches("")) && !(teamD.matches(""))) {
+
+                    if(Integer.parseInt(member) > 1 && Integer.parseInt(member) < 7) {
+                        UserCreateTeam.setNumOfMembers(Integer.parseInt(member));
+                        UserCreateTeam.setTeamName(teamN);
+                        UserCreateTeam.setTeamDesc(teamD);
+                        _onGoToCreateTeam2.toGotoCreateTeam2();
+                    }else{
+                        Toast.makeText(getContext(), "Members only ranges from 2 up to 6!", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Kindly complete all the fields!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

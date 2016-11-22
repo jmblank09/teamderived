@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="No. of Members: "
+                    android:text="No. of Members (2 to 6):  "
                     android:textSize="17dp"
                     android:textColor="@color/gray"
                     android:id="@+id/textView12"

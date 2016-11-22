@@ -47,7 +47,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         String name = username.getText().toString();
         String pass = password.getText().toString();
 
-        if (!(mail.matches("") || name.matches("") || pass.matches(""))) {
+        if (!(mail.matches("")) && !(name.matches("")) && !(pass.matches(""))) {
             RequestParams params = new RequestParams();
             params.put("name", name);
             params.put("email", mail);

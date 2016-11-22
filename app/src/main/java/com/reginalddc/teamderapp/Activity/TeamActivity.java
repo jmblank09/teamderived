@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.CreateTeamFragment.CreateTeam2Fragment;
 import com.reginalddc.teamderapp.CreateTeamFragment.CreateTeamFragment;
 import com.reginalddc.teamderapp.HomePageFragment.HomeFragment;
@@ -24,6 +27,8 @@ import com.reginalddc.teamderapp.SearchFragment.SearchFragment;
 import com.reginalddc.teamderapp.SearchFragment.SearchListFragment;
 import com.reginalddc.teamderapp.SearchFragment.SearchedTeamFragment;
 
+import org.json.JSONObject;
+
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
         RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment{
 
@@ -35,6 +40,26 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
         willView();
+        RequestParams params = new RequestParams();
+        params.put("user_id", Integer.toString(UserProfile.getUserID()));
+        invokeWS(params);
+    }
+
+    public void invokeWS(RequestParams params){
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get("http://107.170.61.180/android/teamderived_api/users/get_profile.php", params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(String response){
+                try{
+
+                    JSONObject obj = new JSONObject(response);
+                    UserProfile user = new UserProfile(obj);
+                    user.retrievalData();
+                }catch(Exception e){}
+            }
+        });
     }
 
     @Override

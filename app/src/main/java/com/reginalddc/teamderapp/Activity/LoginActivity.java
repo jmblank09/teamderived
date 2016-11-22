@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
         Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 2000);
+        pdCanceller.postDelayed(progressRunnable, 1000);
         AsyncHttpClient client = new AsyncHttpClient();
 
         client.get("http://107.170.61.180/android/teamderived_api/auth/login.php", params, new AsyncHttpResponseHandler() {
