@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.reginalddc.teamderapp.Model.UserCreateTeam;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.R;
 
@@ -45,6 +46,8 @@ public class CreateTeamFragment extends Fragment {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                UserCreateTeam.setNumOfMembers(Integer.parseInt(members.getText().toString()));
                 _onGoToCreateTeam2.toGotoCreateTeam2();
             }
         });
