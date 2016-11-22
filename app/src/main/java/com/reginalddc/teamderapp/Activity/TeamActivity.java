@@ -2,6 +2,7 @@ package com.reginalddc.teamderapp.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,9 +21,11 @@ import com.reginalddc.teamderapp.ProfileFragment.EditProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
 import com.reginalddc.teamderapp.R;
 import com.reginalddc.teamderapp.SearchFragment.SearchFragment;
+import com.reginalddc.teamderapp.SearchFragment.SearchListFragment;
+import com.reginalddc.teamderapp.SearchFragment.SearchedTeamFragment;
 
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
-        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2 {
+        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment{
 
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
@@ -91,6 +94,16 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     public void toGotoCreateTeam2(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_layout, new CreateTeam2Fragment()).commit();
+    }
+
+    @Override
+    public void toGoToSearchedTeamFragment(String data){
+        Bundle bundle=new Bundle();
+        bundle.putString("teamNames", data);
+        SearchListFragment fragmentObject = new SearchListFragment();
+        fragmentObject.setArguments(bundle);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new SearchedTeamFragment()).commit();
     }
 
     private void willView(){

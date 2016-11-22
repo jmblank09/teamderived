@@ -38,4 +38,5 @@
     <string name="profileView">▲ View Profile</string>
     <string name="tapHereForRequestOfEmptyRoles"><u>Tap here for request of empty roles</u></string>
     <string name="applyRole">Applying for the Role of:</string>
+    <string name="rqstToJoin">Request to Join Team</string>
 </resources>
