@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -27,7 +31,7 @@ public class SearchListFragment extends ListFragment {
     View rootView = null;
     String[] teamName = {"TeamBa", "Team2", "Team3"};
     ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
-    SimpleAdapter adapter;
+    SimpleAdapter adapterr;
     // TODO: Rename and change types of parameters
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,8 +47,8 @@ public class SearchListFragment extends ListFragment {
         String [] keys = {"TeamNames"};
 
         int[] to ={R.id.TeamName_textView};
-        adapter = new SimpleAdapter(getActivity(), data, R.layout.listview_searchresults, keys, to);
-        setListAdapter(adapter);
+        adapterr = new SimpleAdapter(getActivity(), data, R.layout.listview_searchresults, keys, to);
+        setListAdapter(adapterr);
         //doSearch();
 
         return super.onCreateView(inflater, container, savedInstanceState);
@@ -63,6 +67,24 @@ public class SearchListFragment extends ListFragment {
             @Override
             public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
                 Toast.makeText(getActivity(), data.get(pos).get("TeamNames"), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        EditText inputSearch = (EditText) getActivity().findViewById(R.id.editText_search);
+        inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ((SimpleAdapter)SearchListFragment.this.adapterr).getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });

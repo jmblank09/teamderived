@@ -6,6 +6,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
+        android:id="@+id/RelativeLayout_Search"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
@@ -25,7 +26,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/editText_search"
             android:layout_toRightOf="@+id/searchImageView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
