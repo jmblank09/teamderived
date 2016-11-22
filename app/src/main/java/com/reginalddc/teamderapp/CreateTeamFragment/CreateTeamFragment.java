@@ -11,13 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CreateTeamFragment extends Fragment {
-    EditText editText_numOfMem;
+    EditText members, teamName, teamDesc;
+    TextView teamLeader;
     Button nextBtn;
     private onGoToCreateTeam2 _onGoToCreateTeam2;
 
@@ -32,7 +34,13 @@ public class CreateTeamFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View fragmentView = inflater.inflate(R.layout.fragment_create_team, container, false);
-        editText_numOfMem = (EditText)fragmentView.findViewById(R.id.editText_numOfMember);
+        members = (EditText)fragmentView.findViewById(R.id.editText_numOfMember);
+        teamLeader = (TextView) fragmentView.findViewById(R.id.textView_teamLeader);
+        teamName = (EditText) fragmentView.findViewById(R.id.editText_teamName);
+        teamDesc = (EditText) fragmentView.findViewById(R.id.editText_desc);
+
+        teamLeader.setText(UserProfile.getFullName());
+
         nextBtn = (Button)fragmentView.findViewById(R.id.nextBtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
