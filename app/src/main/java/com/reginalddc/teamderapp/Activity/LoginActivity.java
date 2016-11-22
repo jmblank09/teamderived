@@ -19,6 +19,7 @@ import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Carousel;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.R;
+import com.viewpagerindicator.CirclePageIndicator;
 
 import org.json.JSONObject;
 
@@ -62,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
         mPager.setScrollDurationFactor(3);
         mPager.startAutoScroll();
 
+        //Bind the title indicator to the adapter
+        CirclePageIndicator titleIndicator = (CirclePageIndicator) findViewById(R.id.pageIndicator);
+        titleIndicator.setViewPager(mPager);
     }
 
     /**

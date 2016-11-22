@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
     </style>
+
+    <style name="CustomCirclePageIndicator">
+        <item name="fillColor">#F7F7F7</item>
+        <item name="pageColor">#E1E1E1</item>
+        <item name="strokeWidth">0dp</item>
+</style>
 
 </resources>
