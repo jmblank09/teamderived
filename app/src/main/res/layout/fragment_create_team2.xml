@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true"
@@ -27,8 +27,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Create Team"
-                    android:id="@+id/textView5"
+                    android:text="◄ Create Team"
+                    android:id="@+id/btn_backToCreateTeam"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
@@ -38,291 +38,297 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <RelativeLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/teamLeader"
-                    android:textColor="@color/gray"
-                    android:id="@+id/textView9"
-                    android:layout_marginBottom="2dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textView_teamLeader"
-                    android:textColor="@color/black"
-                    android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/textView9"
-                    android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/teamLeader"
+                        android:textColor="@color/gray"
+                        android:id="@+id/textView9"
+                        android:layout_marginBottom="2dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/member1"
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/textView10"
-                    android:textColor="@color/gray"
-                    android:layout_below="@+id/textView9"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/textView_teamLeader"
+                        android:textColor="@color/black"
+                        android:layout_alignParentTop="true"
+                        android:layout_toRightOf="@+id/textView9"
+                        android:textSize="18dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/role1"
-                    android:id="@+id/textView11"
-                    android:textColor="@color/gray"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/textView10"
-                    android:layout_alignLeft="@+id/textView10"
-                    android:layout_alignStart="@+id/textView10"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/member1"
+                        android:layout_marginBottom="0dp"
+                        android:id="@+id/textView10"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/textView9"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
 
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinner1"
-                    android:layout_alignBottom="@+id/textView11"
-                    android:layout_toRightOf="@+id/textView11"
-                    android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/role1"
+                        android:id="@+id/textView11"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_below="@+id/textView10"
+                        android:layout_alignLeft="@+id/textView10"
+                        android:layout_alignStart="@+id/textView10"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp" />
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/member2"
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/textView12"
-                    android:textColor="@color/gray"
-                    android:layout_below="@+id/textView11"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Role 2: "
-                    android:id="@+id/textView13"
-                    android:textColor="@color/gray"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/textView12"
-                    android:layout_alignLeft="@+id/textView12"
-                    android:layout_alignStart="@+id/textView12"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp" />
-
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinner2"
-                    android:layout_alignBottom="@+id/textView13"
-                    android:layout_toRightOf="@+id/textView13"
-                    android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Member 3: "
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/editText_member3"
-                    android:textColor="@color/gray"
-                    android:layout_below="@+id/textView13"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Role 3: "
-                    android:id="@+id/editText_role3"
-                    android:textColor="@color/gray"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/editText_member3"
-                    android:layout_alignLeft="@+id/editText_member3"
-                    android:layout_alignStart="@+id/editText_member3"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp" />
-
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinner3"
-                    android:layout_alignBottom="@+id/editText_role3"
-                    android:layout_toRightOf="@+id/editText_role3"
-                    android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Member 4: "
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/editText_member4"
-                    android:textColor="@color/gray"
-                    android:layout_below="@+id/editText_role3"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Role 4: "
-                    android:id="@+id/editText_role4"
-                    android:textColor="@color/gray"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/editText_member4"
-                    android:layout_alignLeft="@+id/editText_member4"
-                    android:layout_alignStart="@+id/editText_member4"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp" />
-
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinner4"
-                    android:layout_alignBottom="@+id/editText_role4"
-                    android:layout_toRightOf="@+id/editText_role4"
-                    android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Member 5: "
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/editText_member5"
-                    android:textColor="@color/gray"
-                    android:layout_below="@+id/editText_role4"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Role 5: "
-                    android:id="@+id/editText_role5"
-                    android:textColor="@color/gray"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/editText_member5"
-                    android:layout_alignLeft="@+id/editText_member4"
-                    android:layout_alignStart="@+id/editText_member4"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp" />
-
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinner5"
-                    android:layout_alignBottom="@+id/editText_role5"
-                    android:layout_toRightOf="@+id/editText_role4"
-                    android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Member 6: "
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/editText_member6"
-                    android:textColor="@color/gray"
-                    android:layout_below="@+id/editText_role5"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Role 6: "
-                    android:id="@+id/editText_role6"
-                    android:textColor="@color/gray"
-                    android:textSize="18dp"
-                    android:layout_below="@+id/editText_member6"
-                    android:layout_alignLeft="@+id/editText_member4"
-                    android:layout_alignStart="@+id/editText_member4"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp" />
-
-                <Spinner
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinner6"
-                    android:layout_alignBottom="@+id/editText_role6"
-                    android:layout_toRightOf="@+id/editText_role4"
-                    android:background="@drawable/textarea_border"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    />
-
-                <Button
-                    android:layout_width="fill_parent"
-                    android:layout_height="30dp"
-                    android:background="@drawable/next_button"
-                    android:textColor="@color/white"
-                    android:text="@string/createTeam"
-                    android:id="@+id/btn_CreateTeam"
-                    android:layout_below="@+id/editText_role6"
-                    android:layout_alignRight="@+id/spinner1"
-                    android:layout_alignEnd="@+id/spinner1"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="10dp"/>
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/spinner1"
+                        android:layout_alignBottom="@+id/textView11"
+                        android:layout_toRightOf="@+id/textView11"
+                        android:background="@drawable/textarea_border"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        />
 
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/member2"
+                        android:layout_marginBottom="0dp"
+                        android:id="@+id/textView12"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/textView11"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Role 2: "
+                        android:id="@+id/textView13"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_below="@+id/textView12"
+                        android:layout_alignLeft="@+id/textView12"
+                        android:layout_alignStart="@+id/textView12"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp" />
+
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/spinner2"
+                        android:layout_alignBottom="@+id/textView13"
+                        android:layout_toRightOf="@+id/textView13"
+                        android:background="@drawable/textarea_border"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Member 3: "
+                        android:layout_marginBottom="0dp"
+                        android:id="@+id/editText_member3"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/textView13"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Role 3: "
+                        android:id="@+id/editText_role3"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_below="@+id/editText_member3"
+                        android:layout_alignLeft="@+id/editText_member3"
+                        android:layout_alignStart="@+id/editText_member3"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp" />
+
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/spinner3"
+                        android:layout_alignBottom="@+id/editText_role3"
+                        android:layout_toRightOf="@+id/editText_role3"
+                        android:background="@drawable/textarea_border"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Member 4: "
+                        android:layout_marginBottom="0dp"
+                        android:id="@+id/editText_member4"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/editText_role3"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Role 4: "
+                        android:id="@+id/editText_role4"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_below="@+id/editText_member4"
+                        android:layout_alignLeft="@+id/editText_member4"
+                        android:layout_alignStart="@+id/editText_member4"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp" />
+
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/spinner4"
+                        android:layout_alignBottom="@+id/editText_role4"
+                        android:layout_toRightOf="@+id/editText_role4"
+                        android:background="@drawable/textarea_border"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Member 5: "
+                        android:layout_marginBottom="0dp"
+                        android:id="@+id/editText_member5"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/editText_role4"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Role 5: "
+                        android:id="@+id/editText_role5"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_below="@+id/editText_member5"
+                        android:layout_alignLeft="@+id/editText_member4"
+                        android:layout_alignStart="@+id/editText_member4"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp" />
+
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/spinner5"
+                        android:layout_alignBottom="@+id/editText_role5"
+                        android:layout_toRightOf="@+id/editText_role4"
+                        android:background="@drawable/textarea_border"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Member 6: "
+                        android:layout_marginBottom="0dp"
+                        android:id="@+id/editText_member6"
+                        android:textColor="@color/gray"
+                        android:layout_below="@+id/editText_role5"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Role 6: "
+                        android:id="@+id/editText_role6"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_below="@+id/editText_member6"
+                        android:layout_alignLeft="@+id/editText_member4"
+                        android:layout_alignStart="@+id/editText_member4"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp" />
+
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/spinner6"
+                        android:layout_alignBottom="@+id/editText_role6"
+                        android:layout_toRightOf="@+id/editText_role4"
+                        android:background="@drawable/textarea_border"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/next_button"
+                        android:textColor="@color/white"
+                        android:text="@string/createTeam"
+                        android:id="@+id/btn_CreateTeam"
+                        android:layout_below="@+id/editText_role6"
+                        android:layout_alignRight="@+id/spinner1"
+                        android:layout_alignEnd="@+id/spinner1"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="10dp"/>
+
+                </RelativeLayout>
+
+            </ScrollView>
+
         </LinearLayout>
 
     </RelativeLayout>
-</ScrollView>
+</RelativeLayout>

@@ -29,7 +29,7 @@ import org.json.JSONObject;
  */
 public class CreateTeam2Fragment extends Fragment {
     View fragmentView;
-    private CreateTeam _toHome;
+    private CreateTeam _toHome, _toGoBacktoCreateTeam;
     Spinner role1,role2,role3,role4,role5,role6;
     String[] arraySpinner = {"Front-End", "Back-End", "Researcher", "Pitcher", "UX Designer"};
     TextView textRole3, textRole4, textRole5, textRole6, textMem3, textMem4, textMem5, textMem6, teamLeader;
@@ -153,10 +153,18 @@ public class CreateTeam2Fragment extends Fragment {
                 break;
         }
 
+        TextView backToCreateTeam = (TextView)fragmentView.findViewById(R.id.btn_backToCreateTeam);
+        backToCreateTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoCreateTeam.toGotoCreateTeam();
+            }
+        });
+
         return fragmentView;
     }
 
-    public void invokeWS(RequestParams params){
+    public void invokeWS(RequestParams params) {
         AsyncHttpClient client = new AsyncHttpClient();
 
         client.get("http://107.170.61.180/android/teamderived_api/teams/create_team.php", params, new AsyncHttpResponseHandler() {
@@ -173,7 +181,8 @@ public class CreateTeam2Fragment extends Fragment {
                     }
 
 
-                } catch (Exception e) { }
+                } catch (Exception e) {
+                }
             }
         });
     }
@@ -219,7 +228,7 @@ public class CreateTeam2Fragment extends Fragment {
         super.onAttach(activity);
 
         try{
-
+            _toGoBacktoCreateTeam = (CreateTeam) activity;
             _toHome = (CreateTeam) activity;
 
         }catch (Exception ex){
@@ -233,12 +242,12 @@ public class CreateTeam2Fragment extends Fragment {
     public void onDetach(){
         super.onDetach();
         _toHome = null;
+        _toGoBacktoCreateTeam = null;
     }
 
     public interface CreateTeam {
-
+        public void toGotoCreateTeam();
         public void toHome();
-
     }
 
 }
