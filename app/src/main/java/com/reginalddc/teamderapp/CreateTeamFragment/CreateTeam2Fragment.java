@@ -79,6 +79,7 @@ public class CreateTeam2Fragment extends Fragment {
                         params.put("description", UserCreateTeam.getTeamDesc());
                         params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
                         params.put("roles", UserCreateTeam.getRoles());
+                        params.put("leader_name",UserProfile.getFullName());
                         invokeWS(params);
                     }
                 });
@@ -97,6 +98,7 @@ public class CreateTeam2Fragment extends Fragment {
                         params.put("description", UserCreateTeam.getTeamDesc());
                         params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
                         params.put("roles", UserCreateTeam.getRoles());
+                        params.put("leader_name",UserProfile.getFullName());
                         invokeWS(params);
                     }
                 });
@@ -114,6 +116,7 @@ public class CreateTeam2Fragment extends Fragment {
                         params.put("description", UserCreateTeam.getTeamDesc());
                         params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
                         params.put("roles", UserCreateTeam.getRoles());
+                        params.put("leader_name",UserProfile.getFullName());
                         invokeWS(params);
                     }
                 });
@@ -131,6 +134,7 @@ public class CreateTeam2Fragment extends Fragment {
                         params.put("description", UserCreateTeam.getTeamDesc());
                         params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
                         params.put("roles", UserCreateTeam.getRoles());
+                        params.put("leader_name",UserProfile.getFullName());
                         invokeWS(params);
                     }
                 });
@@ -147,6 +151,8 @@ public class CreateTeam2Fragment extends Fragment {
                         params.put("description", UserCreateTeam.getTeamDesc());
                         params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
                         params.put("roles", UserCreateTeam.getRoles());
+                        params.put("leader_name",UserProfile.getFullName());
+
                         invokeWS(params);
                     }
                 });

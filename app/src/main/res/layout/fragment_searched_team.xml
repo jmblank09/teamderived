@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="&lt;tags>"
-                    android:id="@+id/textView19"
+                    android:id="@+id/textView_teamSearchedDesc"
                     android:layout_below="@+id/textViewTeamName"
                     android:layout_alignLeft="@+id/textViewTeamName"
                     android:layout_alignStart="@+id/textViewTeamName" />
@@ -89,6 +89,7 @@
                     android:layout_below="@+id/textView21"
                     android:background="@drawable/spinner_design"
                     android:paddingLeft="10dp"
+                    android:spinnerMode="dropdown"
                     android:layout_marginRight="20dp"/>
             </RelativeLayout>
             <Button

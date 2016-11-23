@@ -32,11 +32,10 @@ import com.reginalddc.teamderapp.SearchFragment.SearchedTeamFragment;
 
 import org.json.JSONObject;
 
+
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile, EditProfileFragment.onBacktoProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
         RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment, CreateTeam2Fragment.CreateTeam
-        ,OtherProfileFragment.onBacktoManageTeam{
-
-
+        ,OtherProfileFragment.onBacktoManageTeam,  SearchedTeamFragment.GoSearch{
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
 
@@ -146,9 +145,13 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     }
 
     @Override
-    public void toGoToSearchedTeamFragment(String data){
+    public void toGoToSearchedTeamFragment(String data, String data2, String [] data3, String data4){
         Bundle bundle=new Bundle();
         bundle.putString("teamNames", data);
+        bundle.putString("teamDesc", data2);
+        bundle.putStringArray("teamRoles", data3);
+        bundle.putString("teamId", data4);
+        bundle.putInt("userId", user.getUserID());
         SearchedTeamFragment fragmentObject = new SearchedTeamFragment();
         fragmentObject.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -158,6 +161,14 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     @Override
     public void toHome(){
         createIcon.setImageResource(R.drawable.create_icon_inactive);
+        teamIcon.setImageResource(R.drawable.team_icon_active);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();
+    }
+
+    @Override
+    public void toSearch(){
+        searchIcon.setImageResource(R.drawable.search_icon_inactive);
         teamIcon.setImageResource(R.drawable.team_icon_active);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();

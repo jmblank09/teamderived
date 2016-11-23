@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/tags"
-                android:id="@+id/textView2"
+                android:id="@+id/textView_teamDescript"
                 android:layout_below="@+id/textView"
                 android:layout_alignLeft="@+id/textView"
                 android:layout_alignStart="@+id/textView" />
@@ -62,18 +62,17 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/TeamName"
                 android:id="@+id/TeamName_textView"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_above="@+id/textView2"
+                android:textColor="#333333"
+                android:layout_above="@+id/textView_teamDescript"
                 android:layout_toRightOf="@+id/textView"
                 android:layout_toEndOf="@+id/textView"
-                android:textColor="#333333" />
+                android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/teamLeader"
-                android:id="@+id/textView3"
+                android:text=""
+                android:id="@+id/textView_role1"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_below="@+id/Letter_imageView"
@@ -83,11 +82,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Zishran Julbert"
-                android:id="@+id/teamLead_textVIew"
+                android:text=""
+                android:id="@+id/role1name_textVIew"
                 android:layout_marginLeft="5dp"
-                android:layout_alignTop="@+id/textView3"
-                android:layout_toRightOf="@+id/textView3"
+                android:layout_alignTop="@+id/textView_role1"
+                android:layout_toRightOf="@+id/textView_role1"
                 android:layout_alignRight="@+id/TeamName_textView"
                 android:layout_alignEnd="@+id/TeamName_textView"
                 android:textColor="#333333" />
@@ -95,89 +94,120 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/backEnd"
-                android:id="@+id/textView4"
-                android:layout_below="@+id/textView3"
-                android:layout_toLeftOf="@+id/teamLead_textVIew"
-                android:layout_toStartOf="@+id/teamLead_textVIew" />
+                android:text=""
+                android:id="@+id/textView_role2"
+                android:layout_below="@+id/textView_role1"
+                android:layout_toLeftOf="@+id/role1name_textVIew"
+                android:layout_toStartOf="@+id/role1name_textVIew" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Zishran Julbert"
-                android:id="@+id/backEnd_textView"
+                android:text=""
+                android:id="@+id/role2name_textView"
                 android:textColor="#333333"
-                android:layout_below="@+id/teamLead_textVIew"
-                android:layout_alignLeft="@+id/teamLead_textVIew"
-                android:layout_alignStart="@+id/teamLead_textVIew" />
+                android:layout_below="@+id/role1name_textVIew"
+                android:layout_alignLeft="@+id/role1name_textVIew"
+                android:layout_alignStart="@+id/role1name_textVIew" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/frontend"
-                android:id="@+id/textView5"
-                android:layout_below="@+id/textView4"
-                android:layout_alignLeft="@+id/textView4"
-                android:layout_alignStart="@+id/textView4" />
+                android:text=""
+                android:id="@+id/textView_role3"
+                android:layout_below="@+id/textView_role2"
+                android:layout_alignLeft="@+id/textView_role2"
+                android:layout_alignStart="@+id/textView_role2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Zishran Julbert"
-                android:id="@+id/frontEnd_textView"
+                android:text=""
+                android:id="@+id/role3name_textView"
                 android:textColor="#333333"
-                android:layout_below="@+id/backEnd_textView"
-                android:layout_alignLeft="@+id/backEnd_textView"
-                android:layout_alignStart="@+id/backEnd_textView" />
+                android:layout_below="@+id/role2name_textView"
+                android:layout_alignLeft="@+id/role2name_textView"
+                android:layout_alignStart="@+id/role2name_textView" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pitcher"
-                android:id="@+id/textView6"
-                android:layout_below="@+id/textView5"
+                android:text=""
+                android:id="@+id/textView_role4"
+                android:layout_below="@+id/textView_role3"
                 android:layout_alignRight="@+id/textView4"
-                android:layout_alignEnd="@+id/textView4" />
+                android:layout_alignEnd="@+id/textView_role2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/none"
-                android:id="@+id/pitcher_textView"
+                android:text=""
+                android:id="@+id/role4name_textView"
                 android:textColor="#333333"
-                android:layout_below="@+id/frontEnd_textView"
-                android:layout_alignLeft="@+id/frontEnd_textView"
-                android:layout_alignStart="@+id/frontEnd_textView" />
+                android:layout_below="@+id/role3name_textView"
+                android:layout_alignLeft="@+id/role3name_textView"
+                android:layout_alignStart="@+id/role3name_textView" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/designer"
-                android:id="@+id/textView7"
-                android:layout_below="@+id/textView6"
-                android:layout_alignRight="@+id/textView5"
-                android:layout_alignEnd="@+id/textView5" />
+                android:text=""
+                android:id="@+id/textView_role5"
+                android:layout_below="@+id/textView_role4"
+                android:layout_alignRight="@+id/textView_role3"
+                android:layout_alignEnd="@+id/textView_role3" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/none"
-                android:id="@+id/designer_textView"
+                android:text=""
+                android:id="@+id/role5name_textView"
                 android:textColor="#333333"
-                android:layout_alignTop="@+id/textView7"
-                android:layout_alignLeft="@+id/pitcher_textView"
-                android:layout_alignStart="@+id/pitcher_textView" />
+                android:layout_alignTop="@+id/textView_role5"
+                android:layout_alignLeft="@+id/role4name_textView"
+                android:layout_alignStart="@+id/role4name_textView" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/joinTeam"
                 android:id="@+id/textView8"
-                android:layout_below="@+id/pitcher_textView"
+                android:layout_below="@+id/role4name_textView"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="18dp"
                 android:textColor="#3498db" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/textView_role6"
+                android:layout_below="@+id/textView_role5"
+                android:layout_alignLeft="@+id/textView_role5"
+                android:layout_alignStart="@+id/textView_role5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/role6name_textView"
+                android:textColor="#333333"
+                android:layout_below="@+id/role5name_textView"
+                android:layout_toRightOf="@+id/textView_role5"
+                android:layout_toEndOf="@+id/textView_role5"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/textView_teamIdsearch"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/textView"
+                android:layout_alignStart="@+id/textView" />
         </RelativeLayout>
     </RelativeLayout>
 
