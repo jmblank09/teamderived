@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.reginalddc.teamderapp.Model.ManageTeamAdapter;
+import com.reginalddc.teamderapp.Model.RequestToJoinTeamAdapter;
 import com.reginalddc.teamderapp.Model.Team;
 import com.reginalddc.teamderapp.R;
 
@@ -42,7 +43,7 @@ public class RequestToJoinTeamFragment extends Fragment {
         View fragmentView = inflater.inflate(R.layout.fragment_request_to_join, container, false);
 
         ArrayList<Team> arrayOfTeam = new ArrayList<Team>();
-        final ManageTeamAdapter adapter = new ManageTeamAdapter(getContext(), arrayOfTeam);
+        final RequestToJoinTeamAdapter adapter = new RequestToJoinTeamAdapter(getContext(), arrayOfTeam);
         ListView listView = (ListView) fragmentView.findViewById(R.id.listView_requestToJoinTeam);
         listView.setAdapter(adapter);
         Team firstTeam = new Team("Alfredo Mercado", "Front-End");

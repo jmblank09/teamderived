@@ -29,16 +29,16 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_vertical"
             android:paddingLeft="5dp"
             android:paddingTop="5dp">
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="22dp"
+                android:layout_height="32dp"
                 android:layout_gravity="center_horizontal">
 
                 <TextView
@@ -47,13 +47,29 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Apolinario Mabini"
                     android:id="@+id/textView_memName"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="22dp"
+                    android:id="@+id/imageView3"
+                    android:layout_weight="0.27"
+                    android:src="@drawable/approve"
+                    android:layout_gravity="right"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:id="@+id/imageView2"/>
-            </LinearLayout>
+                    android:layout_width="30dp"
+                    android:layout_height="22dp"
+                    android:id="@+id/imageView4"
+                    android:src="@drawable/cancel"
+                    android:layout_gravity="right"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/imageView3"
+                    android:layout_toStartOf="@+id/imageView3" />
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,7 +87,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="▲ View Profile"
                 android:id="@+id/textView7"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="right"
                 android:textSize="14sp"
                 android:textColor="@color/managetextColor"/>
