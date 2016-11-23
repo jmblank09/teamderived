@@ -14,10 +14,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Model.ManageTeamAdapter;
 import com.reginalddc.teamderapp.Model.Team;
+import com.reginalddc.teamderapp.Model.UserTeam;
 import com.reginalddc.teamderapp.R;
 
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -27,7 +32,9 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class ManageTeamFragment extends Fragment {
-    TextView backToCreatedTeam,goToRequestToJoinTeam;
+
+    View fragmentView;
+    TextView backToCreatedTeam,goToRequestToJoinTeam, teamName, teamDesc;
     private onBacktoCreatedTeam _toGoBacktoCreatedTeam;
     private onGotoRequestTeam _toGoBacktoRequestTeam;
 
@@ -40,7 +47,40 @@ public class ManageTeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fragmentView = inflater.inflate(R.layout.fragment_manage, container, false);
+        fragmentView = inflater.inflate(R.layout.fragment_manage, container, false);
+
+
+        RequestParams params = new RequestParams();
+        params.put("team_id", UserTeam.getSelectedTeamID());
+        invokeWS(params);
+        return fragmentView;
+    }
+
+    public void invokeWS(RequestParams params){
+
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get("http://107.170.61.180/android/teamderived_api/teams/get_team_info.php", params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    UserTeam userTeam = new UserTeam(obj);
+                    userTeam.retrievalData2();
+                    willView();
+                }catch (Exception e) {}
+            }
+        });
+    }
+
+    private void willView(){
+
+        teamName = (TextView) fragmentView.findViewById(R.id.textView_teamName);
+        teamDesc = (TextView) fragmentView.findViewById(R.id.textView_teamDesc);
+
+        teamName.setText(UserTeam.getSelectedTeamName());
+        teamDesc.setText(UserTeam.getSelectedTeamDescription());
 
         ArrayList<Team> arrayOfTeam = new ArrayList<Team>();
         final ManageTeamAdapter adapter = new ManageTeamAdapter(getContext(), arrayOfTeam);
@@ -75,10 +115,7 @@ public class ManageTeamFragment extends Fragment {
                 _toGoBacktoRequestTeam.toGotoRequestTeam();
             }
         });
-
-        return fragmentView;
     }
-
 
 
     @Override

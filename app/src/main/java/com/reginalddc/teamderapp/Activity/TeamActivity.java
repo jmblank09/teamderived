@@ -19,7 +19,9 @@ import com.reginalddc.teamderapp.HomePageFragment.HomeFragment;
 import com.reginalddc.teamderapp.ManageFragment.ManageTeamFragment;
 import com.reginalddc.teamderapp.ManageFragment.RequestToJoinTeamFragment;
 import com.reginalddc.teamderapp.ManageFragment.ViewTeamFragment;
+import com.reginalddc.teamderapp.Model.UserCreateTeam;
 import com.reginalddc.teamderapp.Model.UserProfile;
+import com.reginalddc.teamderapp.Model.UserTeam;
 import com.reginalddc.teamderapp.ProfileFragment.EditProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.OtherProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
@@ -84,6 +86,13 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
 
         dlgAlert.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+
+                //to clear the string arrays
+                UserTeam userTeam = new UserTeam();
+                userTeam.setTeamID(new String[0]);
+                userTeam.setTeamName(new String[0]);
+                userTeam.setTeamDescription(new String[0]);
+
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }

@@ -8,7 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.reginalddc.teamderapp.Model.UserProfile;
+import com.reginalddc.teamderapp.Model.UserTeam;
 import com.reginalddc.teamderapp.R;
+
+import org.json.JSONObject;
 
 
 /**
@@ -31,7 +38,10 @@ public class HomeFragment extends Fragment {
         FragmentManager teamFragment = getChildFragmentManager();
         teamFragment.beginTransaction().replace(R.id.fragmentCreatedTeam_layout, new CreatedTeamFragment()).commit();
         teamFragment.beginTransaction().replace(R.id.fragmentJoinedTeam_layout, new JoinedTeamFragment()).commit();
+
         return fragmentView;
     }
+
+
 
 }
