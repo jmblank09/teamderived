@@ -1,6 +1,8 @@
 package com.reginalddc.teamderapp.Model;
 
 import android.content.Context;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.reginalddc.teamderapp.Model.Team;
+import com.reginalddc.teamderapp.ProfileFragment.OtherProfileFragment;
 import com.reginalddc.teamderapp.R;
 
 import java.util.ArrayList;
@@ -31,9 +34,12 @@ public class ViewTeamAdapter extends ArrayAdapter<Team> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_viewteam, parent, false);
         }
         TextView viewProfile = (TextView)convertView.findViewById(R.id.btn_viewProfile);
+        final FragmentTransaction fragmentManager = ((AppCompatActivity)getContext()).getSupportFragmentManager()
+                .beginTransaction();
         viewProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "You Pressed View Profile Button", Toast.LENGTH_LONG).show();
+                fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
             }
         });
 

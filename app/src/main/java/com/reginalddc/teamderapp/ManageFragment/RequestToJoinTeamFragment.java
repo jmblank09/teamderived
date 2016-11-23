@@ -100,4 +100,5 @@ public class RequestToJoinTeamFragment extends Fragment {
         public void toGotoManageTeam();
     }
 
+
 }

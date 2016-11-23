@@ -21,6 +21,7 @@ import com.reginalddc.teamderapp.ManageFragment.RequestToJoinTeamFragment;
 import com.reginalddc.teamderapp.ManageFragment.ViewTeamFragment;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.ProfileFragment.EditProfileFragment;
+import com.reginalddc.teamderapp.ProfileFragment.OtherProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
 import com.reginalddc.teamderapp.R;
 import com.reginalddc.teamderapp.SearchFragment.SearchFragment;
@@ -30,7 +31,8 @@ import com.reginalddc.teamderapp.SearchFragment.SearchedTeamFragment;
 import org.json.JSONObject;
 
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile, EditProfileFragment.onBacktoProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
-        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment, CreateTeam2Fragment.CreateTeam {
+        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment, CreateTeam2Fragment.CreateTeam
+        ,OtherProfileFragment.onBacktoManageTeam{
 
 
     ImageView userIcon, createIcon, teamIcon, searchIcon;
