@@ -72,6 +72,9 @@ public class UserTeam {
 
         try{
             JSONArray teams = obj.getJSONArray("teams");
+            teamID = new String[0];
+            teamName = new String[0];
+            teamDescription = new String[0];
 
             if (teams.length() > 0) {
                 teamID = new String[teams.length()];

@@ -29,6 +29,8 @@ public class ViewTeamAdapter extends ArrayAdapter<Team> {
     public View getView(int position, View convertView, ViewGroup parent){
 
         Team team = getItem(position);
+        String[] user_id = TeamMembers.getUserID();
+        OtherProfile.setUserID(user_id[position]);
 
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_viewteam, parent, false);

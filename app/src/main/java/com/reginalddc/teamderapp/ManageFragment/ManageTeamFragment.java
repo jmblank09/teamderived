@@ -19,6 +19,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Model.ManageTeamAdapter;
 import com.reginalddc.teamderapp.Model.Team;
+import com.reginalddc.teamderapp.Model.TeamMembers;
 import com.reginalddc.teamderapp.Model.UserTeam;
 import com.reginalddc.teamderapp.R;
 
@@ -68,11 +69,24 @@ public class ManageTeamFragment extends Fragment {
                     JSONObject obj = new JSONObject(response);
                     UserTeam userTeam = new UserTeam(obj);
                     userTeam.retrievalData2();
-                    willView();
                 }catch (Exception e) {}
             }
         });
+
+        client.get("http://107.170.61.180/android/teamderived_api/members/get_members.php", params, new AsyncHttpResponseHandler(){
+
+            @Override
+            public void onSuccess(String response){
+                try{
+                    JSONObject obj = new JSONObject(response);
+                    TeamMembers teamMembers = new TeamMembers(obj);
+                    teamMembers.retrievalData();
+                    willView();
+                }catch (Exception e){}
+            }
+        });
     }
+
 
     private void willView(){
 
@@ -86,12 +100,15 @@ public class ManageTeamFragment extends Fragment {
         final ManageTeamAdapter adapter = new ManageTeamAdapter(getContext(), arrayOfTeam);
         ListView listView = (ListView) fragmentView.findViewById(R.id.listView_manageTeams);
         listView.setAdapter(adapter);
-        Team firstTeam = new Team("Apolinario Mabini", "Front-End");
-        Team secondTeam = new Team("Michael", "Back-End");
-        Team thirdTeam = new Team("Zijugarat", "Taga tagay");
-        adapter.add(firstTeam);
-        adapter.add(secondTeam);
-        adapter.add(thirdTeam);
+
+        String[] member_id = TeamMembers.getMemberID();
+        String[] name = TeamMembers.getName();
+        String[] role = TeamMembers.getRole();
+
+        for (int i = 0; i < member_id.length; i++){
+            Team addTeam = new Team(name[i], role[i]);
+            adapter.add(addTeam);
+        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -85,12 +85,12 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
 
         dlgAlert.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-
-                //to clear the string arrays
-                UserTeam userTeam = new UserTeam();
-                userTeam.setTeamID(new String[0]);
-                userTeam.setTeamName(new String[0]);
-                userTeam.setTeamDescription(new String[0]);
+//
+//                //to clear the string arrays
+//                UserTeam userTeam = new UserTeam();
+//                userTeam.setTeamID(new String[0]);
+//                userTeam.setTeamName(new String[0]);
+//                userTeam.setTeamDescription(new String[0]);
 
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
