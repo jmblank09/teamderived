@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="▲ View Profile"
-                android:id="@+id/textView7"
+                android:id="@+id/btn_viewProfile"
                 android:layout_marginTop="6dp"
                 android:layout_gravity="right"
                 android:textSize="14sp"

@@ -9,9 +9,9 @@
         android:background="@drawable/table_border"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
 
         <RelativeLayout
@@ -52,7 +52,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="22dp"
-                    android:id="@+id/imageView3"
+                    android:id="@+id/btn_approve"
                     android:layout_weight="0.27"
                     android:src="@drawable/approve"
                     android:layout_gravity="right"
@@ -63,12 +63,12 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="22dp"
-                    android:id="@+id/imageView4"
+                    android:id="@+id/btn_delete"
                     android:src="@drawable/cancel"
                     android:layout_gravity="right"
                     android:layout_alignParentTop="true"
-                    android:layout_toLeftOf="@+id/imageView3"
-                    android:layout_toStartOf="@+id/imageView3" />
+                    android:layout_toLeftOf="@+id/btn_approve"
+                    android:layout_toStartOf="@+id/btn_approve" />
             </RelativeLayout>
 
             <TextView
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="▲ View Profile"
-                android:id="@+id/textView7"
+                android:id="@+id/btn_viewProfile"
                 android:layout_marginTop="2dp"
                 android:layout_gravity="right"
                 android:textSize="14sp"
