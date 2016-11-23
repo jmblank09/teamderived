@@ -87,7 +87,7 @@
                     android:layout_height="40dp"
                     android:id="@+id/spinnerRoles"
                     android:layout_below="@+id/textView21"
-                    android:background="@drawable/textarea_border"
+                    android:background="@drawable/spinner_design"
                     android:paddingLeft="10dp"
                     android:layout_marginRight="20dp"/>
             </RelativeLayout>
