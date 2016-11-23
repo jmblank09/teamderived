@@ -3,7 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true"
-    android:scrollbars = "vertical"
     android:fadeScrollbars="false">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -38,7 +37,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scrollbars = "vertical">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -54,8 +54,7 @@
                         android:layout_height="110dp"
                         android:id="@+id/imageView"
                         android:src="@drawable/upload"
-                        android:layout_centerHorizontal="true"
-                        android:onClick=""/>
+                        android:layout_centerHorizontal="true"/>
                 </RelativeLayout>
 
                 <RelativeLayout
