@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -25,8 +26,9 @@ import org.json.JSONObject;
  * A simple {@link Fragment} subclass.
  */
 public class EditProfileFragment extends Fragment {
-
     View fragmentView;
+    TextView backToProfile;
+    private onBacktoProfile _toGoBacktoProfile;
     private UpdateProfile _toProfile;
     EditText name, email, phone, birthday, school, course,
         yearLevel, mainRole, otherRole, achievements, extraCo;
@@ -48,6 +50,14 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 updateUser();
+            }
+        });
+
+        backToProfile = (TextView)fragmentView.findViewById(R.id.btn_backToProfile);
+        backToProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoProfile.toGotoProfile();
             }
         });
 
@@ -144,6 +154,7 @@ public class EditProfileFragment extends Fragment {
 
         try{
 
+            _toGoBacktoProfile = (onBacktoProfile) activity;
             _toProfile = (UpdateProfile) activity;
 
         }catch (Exception ex){
@@ -157,6 +168,7 @@ public class EditProfileFragment extends Fragment {
     public void onDetach(){
         super.onDetach();
         _toProfile = null;
+        _toGoBacktoProfile = null;
     }
 
     public interface UpdateProfile {
@@ -164,4 +176,8 @@ public class EditProfileFragment extends Fragment {
         public void toProfile();
     }
 
+    public interface onBacktoProfile {
+
+        public void toGotoProfile();
+    }
 }

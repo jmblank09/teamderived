@@ -29,7 +29,7 @@ import com.reginalddc.teamderapp.SearchFragment.SearchedTeamFragment;
 
 import org.json.JSONObject;
 
-public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
+public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile, EditProfileFragment.onBacktoProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
         RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment, CreateTeam2Fragment.CreateTeam {
 
 
@@ -96,6 +96,12 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     public void toEditProfile(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_layout, new EditProfileFragment()).commit();
+    }
+
+    @Override
+    public void toGotoProfile() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ProfileFragment()).commit();
     }
 
     @Override
