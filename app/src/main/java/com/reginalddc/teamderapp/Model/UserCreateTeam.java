@@ -11,6 +11,7 @@ public class UserCreateTeam {
     private static int numOfMembers;
     private static String teamName;
     private static String teamDesc;
+    private static String roles;
 
     public UserCreateTeam() {}
 
@@ -39,4 +40,13 @@ public class UserCreateTeam {
     public static void setTeamDesc(String teamDesc) {
         UserCreateTeam.teamDesc = teamDesc;
     }
+
+    public static String getRoles() {
+        return roles;
+    }
+
+    public static void setRoles(String roles) {
+        UserCreateTeam.roles = roles;
+    }
 }
+

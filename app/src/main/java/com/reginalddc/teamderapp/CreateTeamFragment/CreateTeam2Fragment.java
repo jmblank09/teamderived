@@ -1,27 +1,39 @@
 package com.reginalddc.teamderapp.CreateTeamFragment;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.reginalddc.teamderapp.Activity.TeamActivity;
 import com.reginalddc.teamderapp.Model.UserCreateTeam;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.R;
+
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CreateTeam2Fragment extends Fragment {
     View fragmentView;
+    private CreateTeam _toHome;
     Spinner role1,role2,role3,role4,role5,role6;
     String[] arraySpinner = {"Front-End", "Back-End", "Researcher", "Pitcher", "UX Designer"};
     TextView textRole3, textRole4, textRole5, textRole6, textMem3, textMem4, textMem5, textMem6, teamLeader;
+    Button btnCreate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,29 +60,122 @@ public class CreateTeam2Fragment extends Fragment {
         teamLeader = (TextView) fragmentView.findViewById(R.id.textView_teamLeader);
         teamLeader.setText(UserProfile.getFullName());
 
+        btnCreate = (Button) fragmentView.findViewById(R.id.btn_CreateTeam);
+
+        final RequestParams params = new RequestParams();
+
         switch (UserCreateTeam.getNumOfMembers()){
             case 2:
                 hideThird();
                 hideFourth();
                 hideFifth();
                 hideSixth();
+                btnCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UserCreateTeam.setRoles(role1.getSelectedItem().toString() + ";" + role2.getSelectedItem().toString() + ";");
+                        params.put("user_id", Integer.toString(UserProfile.getUserID()));
+                        params.put("name", UserCreateTeam.getTeamName());
+                        params.put("description", UserCreateTeam.getTeamDesc());
+                        params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
+                        params.put("roles", UserCreateTeam.getRoles());
+                        invokeWS(params);
+                    }
+                });
                 break;
             case 3:
                 hideFourth();
                 hideFifth();
                 hideSixth();
+                btnCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UserCreateTeam.setRoles(role1.getSelectedItem().toString() + ";" + role2.getSelectedItem().toString() + ";"
+                                + role3.getSelectedItem().toString() + ";");
+                        params.put("user_id", Integer.toString(UserProfile.getUserID()));
+                        params.put("name", UserCreateTeam.getTeamName());
+                        params.put("description", UserCreateTeam.getTeamDesc());
+                        params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
+                        params.put("roles", UserCreateTeam.getRoles());
+                        invokeWS(params);
+                    }
+                });
                 break;
             case 4:
                 hideFifth();
                 hideSixth();
+                btnCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UserCreateTeam.setRoles(role1.getSelectedItem().toString() + ";" + role2.getSelectedItem().toString() + ";"
+                                + role3.getSelectedItem().toString() + ";" + role4.getSelectedItem().toString() + ";");
+                        params.put("user_id", Integer.toString(UserProfile.getUserID()));
+                        params.put("name", UserCreateTeam.getTeamName());
+                        params.put("description", UserCreateTeam.getTeamDesc());
+                        params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
+                        params.put("roles", UserCreateTeam.getRoles());
+                        invokeWS(params);
+                    }
+                });
                 break;
             case 5:
                 hideSixth();
+                btnCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UserCreateTeam.setRoles(role1.getSelectedItem().toString() + ";" + role2.getSelectedItem().toString() + ";"
+                                + role3.getSelectedItem().toString() + ";" + role4.getSelectedItem().toString() + ";"
+                                + role5.getSelectedItem().toString() + ";");
+                        params.put("user_id", Integer.toString(UserProfile.getUserID()));
+                        params.put("name", UserCreateTeam.getTeamName());
+                        params.put("description", UserCreateTeam.getTeamDesc());
+                        params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
+                        params.put("roles", UserCreateTeam.getRoles());
+                        invokeWS(params);
+                    }
+                });
                 break;
-            default: break;
+            default:
+                btnCreate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UserCreateTeam.setRoles(role1.getSelectedItem().toString() + ";" + role2.getSelectedItem().toString() + ";"
+                                + role3.getSelectedItem().toString() + ";" + role4.getSelectedItem().toString() + ";"
+                                + role5.getSelectedItem().toString() + ";" + role6.getSelectedItem().toString() + ";");
+                        params.put("user_id", Integer.toString(UserProfile.getUserID()));
+                        params.put("name", UserCreateTeam.getTeamName());
+                        params.put("description", UserCreateTeam.getTeamDesc());
+                        params.put("capacity", Integer.toString(UserCreateTeam.getNumOfMembers()));
+                        params.put("roles", UserCreateTeam.getRoles());
+                        invokeWS(params);
+                    }
+                });
+                break;
         }
 
         return fragmentView;
+    }
+
+    public void invokeWS(RequestParams params){
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get("http://107.170.61.180/android/teamderived_api/teams/create_team.php", params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if (obj.getBoolean("success")) {
+                        Toast.makeText(getContext(), UserCreateTeam.getTeamName() + " has successfully created", Toast.LENGTH_LONG).show();
+                        _toHome.toHome();
+                    } else {
+                        Toast.makeText(getContext(), "Ooops! there is an error!", Toast.LENGTH_LONG).show();
+                    }
+
+
+                } catch (Exception e) { }
+            }
+        });
     }
 
     public void hideThird(){
@@ -109,5 +214,31 @@ public class CreateTeam2Fragment extends Fragment {
         role6.setVisibility(View.GONE);
     }
 
+    @Override
+    public void onAttach(Activity activity){
+        super.onAttach(activity);
+
+        try{
+
+            _toHome = (CreateTeam) activity;
+
+        }catch (Exception ex){
+
+            throw new RuntimeException(activity.toString() + " must implement UpdateProfile");
+
+        }
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        _toHome = null;
+    }
+
+    public interface CreateTeam {
+
+        public void toHome();
+
+    }
 
 }

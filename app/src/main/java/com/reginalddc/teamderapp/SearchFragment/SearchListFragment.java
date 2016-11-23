@@ -89,15 +89,9 @@ public class SearchListFragment extends ListFragment {
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
-                String tv =  ((TextView) getView().findViewById((R.id.TeamName_textView))).getText().toString();
-                if(inputSearch.getText().toString().length() > 0){
-                    _mSendData.toGoToSearchedTeamFragment(tv);
-                    Toast.makeText(getActivity(), tv, Toast.LENGTH_SHORT).show();
-                }else{
-                    _mSendData.toGoToSearchedTeamFragment(data.get(pos).get("TeamNames"));
-                    Toast.makeText(getActivity(), data.get(pos).get("TeamNames"), Toast.LENGTH_SHORT).show();
-                }
-
+                String tv =  ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.TeamName_textView))).getText().toString();
+                _mSendData.toGoToSearchedTeamFragment(tv);
+                Toast.makeText(getActivity(), tv, Toast.LENGTH_SHORT).show();
             }
         });
 

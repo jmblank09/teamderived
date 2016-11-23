@@ -30,9 +30,9 @@ public class SearchedTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         View fragmentView = inflater.inflate(R.layout.fragment_searched_team, container, false);
         TextView teamName = (TextView) fragmentView.findViewById(R.id.SearchedTeam_TextView);
-        //String strtext = getArguments().getString("teamNames");
+        String strtext = getArguments().getString("teamNames");
        // System.out.println(strtext);
-        //teamName.setText(strtext);
+        teamName.setText(strtext);
         roles = (Spinner)fragmentView.findViewById(R.id.spinnerRoles);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_dropdown_item_1line, arraySpinner);

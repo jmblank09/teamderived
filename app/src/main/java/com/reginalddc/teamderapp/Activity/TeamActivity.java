@@ -30,7 +30,7 @@ import com.reginalddc.teamderapp.SearchFragment.SearchedTeamFragment;
 import org.json.JSONObject;
 
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
-        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment{
+        RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment, CreateTeam2Fragment.CreateTeam{
 
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
@@ -125,10 +125,16 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     public void toGoToSearchedTeamFragment(String data){
         Bundle bundle=new Bundle();
         bundle.putString("teamNames", data);
-        SearchListFragment fragmentObject = new SearchListFragment();
+        SearchedTeamFragment fragmentObject = new SearchedTeamFragment();
         fragmentObject.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new SearchedTeamFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, fragmentObject).commit();
+    }
+
+    @Override
+    public void toHome(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();
     }
 
     private void willView(){
