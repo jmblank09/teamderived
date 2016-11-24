@@ -106,14 +106,14 @@ public class LoginActivity extends AppCompatActivity {
     public void invokeWS(RequestParams params) {
         //to show the Progress Dialog for Connecting and Dismissed it after it loads the next page
         prgDialog.show();
-        Runnable progressRunnable = new Runnable() {
-            @Override
-            public void run() {
-                prgDialog.cancel();
-            }
-        };
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 1000);
+//        Runnable progressRunnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                prgDialog.cancel();
+//            }
+//        };
+//        Handler pdCanceller = new Handler();
+//        pdCanceller.postDelayed(progressRunnable, 1000);
         AsyncHttpClient client = new AsyncHttpClient();
 
         client.get("http://107.170.61.180/android/teamderived_api/auth/login.php", params, new AsyncHttpResponseHandler() {
@@ -127,15 +127,18 @@ public class LoginActivity extends AppCompatActivity {
                         UserProfile user = new UserProfile();
                         user.setUserID(obj.getInt("user_id"));
                         Toast.makeText(getApplicationContext(), "Success Login!", Toast.LENGTH_LONG).show();
+                        prgDialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), TeamActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
+                        prgDialog.dismiss();
                         Toast.makeText(getApplicationContext(), "Wrong Username or Password!", Toast.LENGTH_LONG).show();
                     }
 
 
                 } catch (Exception e) {
+                    prgDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Error Occured!", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }

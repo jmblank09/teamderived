@@ -26,7 +26,8 @@ import java.util.Date;
  * A simple {@link Fragment} subclass.
  */
 public class OtherProfileFragment extends Fragment {
-    private RequestToJoinTeamFragment.onBacktoManageTeam _toGoBacktoManageTeam;
+
+    private toGoBack _toGoBack;
 
     View fragmentView;
     TextView fname, email, bday, number, school, course, year,
@@ -47,7 +48,7 @@ public class OtherProfileFragment extends Fragment {
         backToManageTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _toGoBacktoManageTeam.toGotoManageTeam();
+                _toGoBack.goBack();
             }
         });
 
@@ -116,7 +117,7 @@ public class OtherProfileFragment extends Fragment {
         super.onAttach(activity);
 
         try{
-            _toGoBacktoManageTeam = (RequestToJoinTeamFragment.onBacktoManageTeam) activity;
+            _toGoBack = (toGoBack) activity;
         }catch (Exception ex){
 
             throw new RuntimeException(activity.toString() + " must implement onBacktoManageTeam");
@@ -127,12 +128,12 @@ public class OtherProfileFragment extends Fragment {
     @Override
     public void onDetach(){
         super.onDetach();
-        _toGoBacktoManageTeam = null;
+        _toGoBack = null;
     }
 
-    public interface onBacktoManageTeam {
+    public interface toGoBack {
 
-        public void toGotoManageTeam();
+        public void goBack();
     }
 
 }

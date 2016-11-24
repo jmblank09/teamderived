@@ -12,6 +12,9 @@ public class    UserTeam {
     private static String[] teamID;
     private static String[] teamName;
     private static String[] teamDescription;
+    private static String[] joinedTeamID;
+    private static String[] joinedTeamName;
+    private static String[] joinedTeamDescription;
     private static String selectedTeamID;
     private static String selectedTeamName;
     private static String selectedTeamDescription;
@@ -68,6 +71,30 @@ public class    UserTeam {
         UserTeam.selectedTeamDescription = selectedTeamDescription;
     }
 
+    public static String[] getJoinedTeamID() {
+        return joinedTeamID;
+    }
+
+    public static void setJoinedTeamID(String[] joinedTeamID) {
+        UserTeam.joinedTeamID = joinedTeamID;
+    }
+
+    public static String[] getJoinedTeamName() {
+        return joinedTeamName;
+    }
+
+    public static void setJoinedTeamName(String[] joinedTeamName) {
+        UserTeam.joinedTeamName = joinedTeamName;
+    }
+
+    public static String[] getJoinedTeamDescription() {
+        return joinedTeamDescription;
+    }
+
+    public static void setJoinedTeamDescription(String[] joinedTeamDescription) {
+        UserTeam.joinedTeamDescription = joinedTeamDescription;
+    }
+
     public void retrievalData(){
 
         try{
@@ -95,6 +122,28 @@ public class    UserTeam {
         try{
             selectedTeamName = obj.getJSONObject("team_info").getString("name");
             selectedTeamDescription = obj.getJSONObject("team_info").getString("description");
+
+        }catch (Exception e){}
+    }
+
+    public void retrievalJoinedTeam(){
+
+        try{
+            JSONArray teams = obj.getJSONArray("teams");
+            joinedTeamID = new String[0];
+            joinedTeamName = new String[0];
+            joinedTeamDescription = new String[0];
+
+            if (teams.length() > 0) {
+                joinedTeamID = new String[teams.length()];
+                joinedTeamName = new String[teams.length()];
+                joinedTeamDescription = new String[teams.length()];
+                for (int i = 0; i < teams.length(); i++){
+                    joinedTeamID[i] = teams.getJSONObject(i).getString("team_id");
+                    joinedTeamName[i] = teams.getJSONObject(i).getString("name");
+                    joinedTeamDescription[i] = teams.getJSONObject(i).getString("description");
+                }
+            }
 
         }catch (Exception e){}
     }

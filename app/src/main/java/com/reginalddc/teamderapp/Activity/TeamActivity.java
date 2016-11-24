@@ -36,7 +36,7 @@ import org.json.JSONObject;
 
 public class TeamActivity extends AppCompatActivity implements ProfileFragment.OnEditProfile, EditProfileFragment.UpdateProfile, EditProfileFragment.onBacktoProfile,ManageTeamFragment.onBacktoCreatedTeam,ManageTeamFragment.onGotoRequestTeam,
         RequestToJoinTeamFragment.onBacktoManageTeam , ViewTeamFragment.onBacktoCreatedTeam, CreateTeamFragment.onGoToCreateTeam2, SearchListFragment.toGoToSearchedTeamFragment, CreateTeam2Fragment.CreateTeam
-        ,OtherProfileFragment.onBacktoManageTeam,  SearchedTeamFragment.GoSearch{
+        ,OtherProfileFragment.toGoBack,  SearchedTeamFragment.GoSearch{
     ImageView userIcon, createIcon, teamIcon, searchIcon;
     UserProfile user;
 
@@ -122,7 +122,7 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     }
 
     @Override
-    public void toGotoManageTeam(){
+    public void goBack(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         switch (OtherProfile.getTracer()){
             case 1:
@@ -134,9 +134,16 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
             case 3:
                 fragmentManager.beginTransaction().replace(R.id.fragment_layout, new RequestToJoinTeamFragment()).commit();
                 break;
-            default: break;
+            default:
+                break;
         }
 
+    }
+
+    @Override
+    public void backtoManageTeam(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
     }
 
     @Override

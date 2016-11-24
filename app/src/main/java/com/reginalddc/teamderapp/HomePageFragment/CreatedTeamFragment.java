@@ -51,7 +51,7 @@ public class CreatedTeamFragment extends Fragment {
         return fragmentView;
     }
 
-    public void invokeWS(RequestParams params){
+    private void invokeWS(RequestParams params){
 
         AsyncHttpClient client = new AsyncHttpClient();
 
@@ -93,7 +93,7 @@ public class CreatedTeamFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                userTeam.setSelectedTeamID(arrayID[position]);
+                UserTeam.setSelectedTeamID(arrayID[position]);
                 fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
             }
         });

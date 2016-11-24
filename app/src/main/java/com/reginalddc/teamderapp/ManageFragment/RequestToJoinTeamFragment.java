@@ -50,6 +50,14 @@ public class RequestToJoinTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         fragmentView = inflater.inflate(R.layout.fragment_request_to_join, container, false);
 
+        backToManageTeam = (TextView)fragmentView.findViewById(R.id.btn_backToManageTeam);
+        backToManageTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoManageTeam.backtoManageTeam();
+            }
+        });
+
         RequestParams params = new RequestParams();
         params.put("team_id", UserTeam.getSelectedTeamID());
         invokeWS(params);
@@ -93,15 +101,6 @@ public class RequestToJoinTeamFragment extends Fragment {
                 adapter.add(addTeam);
             }
         }
-
-
-        backToManageTeam = (TextView)fragmentView.findViewById(R.id.btn_backToManageTeam);
-        backToManageTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                _toGoBacktoManageTeam.toGotoManageTeam();
-            }
-        });
     }
 
 
@@ -126,7 +125,7 @@ public class RequestToJoinTeamFragment extends Fragment {
 
     public interface onBacktoManageTeam {
 
-        public void toGotoManageTeam();
+        public void backtoManageTeam();
     }
 
 

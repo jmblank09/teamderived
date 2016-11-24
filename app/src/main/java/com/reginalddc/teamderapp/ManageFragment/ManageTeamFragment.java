@@ -51,6 +51,22 @@ public class ManageTeamFragment extends Fragment {
         fragmentView = inflater.inflate(R.layout.fragment_manage, container, false);
 
 
+        backToCreatedTeam = (TextView)fragmentView.findViewById(R.id.btn_backToCreatedTeam);
+        backToCreatedTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoCreatedTeam.toGotoCreatedTeam();
+            }
+        });
+
+        goToRequestToJoinTeam = (TextView)fragmentView.findViewById(R.id.btn_tapHere);
+        goToRequestToJoinTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoRequestTeam.toGotoRequestTeam();
+            }
+        });
+
         RequestParams params = new RequestParams();
         params.put("team_id", UserTeam.getSelectedTeamID());
         invokeWS(params);
@@ -69,6 +85,7 @@ public class ManageTeamFragment extends Fragment {
                     JSONObject obj = new JSONObject(response);
                     UserTeam userTeam = new UserTeam(obj);
                     userTeam.retrievalData2();
+                    willView();
                 }catch (Exception e) {}
             }
         });
@@ -105,33 +122,11 @@ public class ManageTeamFragment extends Fragment {
         String[] name = TeamMembers.getName();
         String[] role = TeamMembers.getRole();
 
-        for (int i = 0; i < member_id.length; i++){
+        for (int i = 1; i < member_id.length; i++){
             Team addTeam = new Team(name[i], role[i]);
             adapter.add(addTeam);
         }
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getContext(), adapter.getItem(position).teamName, Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-        backToCreatedTeam = (TextView)fragmentView.findViewById(R.id.btn_backToCreatedTeam);
-        backToCreatedTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                _toGoBacktoCreatedTeam.toGotoCreatedTeam();
-            }
-        });
-
-        goToRequestToJoinTeam = (TextView)fragmentView.findViewById(R.id.btn_tapHere);
-        goToRequestToJoinTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                _toGoBacktoRequestTeam.toGotoRequestTeam();
-            }
-        });
     }
 
 
