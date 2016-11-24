@@ -74,7 +74,7 @@
                 android:text=""
                 android:id="@+id/textView_role1"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/Letter_imageView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -135,8 +135,8 @@
                 android:text=""
                 android:id="@+id/textView_role4"
                 android:layout_below="@+id/textView_role3"
-                android:layout_alignRight="@+id/textView4"
-                android:layout_alignEnd="@+id/textView_role2" />
+                android:layout_alignLeft="@+id/textView3"
+                android:layout_alignStart="@+id/textView_role3" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -154,8 +154,8 @@
                 android:text=""
                 android:id="@+id/textView_role5"
                 android:layout_below="@+id/textView_role4"
-                android:layout_alignRight="@+id/textView_role3"
-                android:layout_alignEnd="@+id/textView_role3" />
+                android:layout_alignLeft="@+id/textView_role4"
+                android:layout_alignStart="@+id/textView_role4" />
 
             <TextView
                 android:layout_width="wrap_content"

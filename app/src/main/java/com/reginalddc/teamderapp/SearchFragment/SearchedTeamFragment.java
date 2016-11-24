@@ -21,6 +21,10 @@ import com.reginalddc.teamderapp.R;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -42,7 +46,9 @@ public class SearchedTeamFragment extends Fragment {
         String strtext2 = getArguments().getString("teamDesc");
         final int teamId = Integer.parseInt(getArguments().getString("teamId"));
         final int userId = getArguments().getInt("userId");
+        final String fullName = getArguments().getString("fullName");
         arraySpinner = getArguments().getStringArray("teamRoles");
+        arraySpinner[0] = arraySpinner[1];
         final RequestParams params = new RequestParams();
        // System.out.println(strtext);
         teamName.setText(strtext);
@@ -60,6 +66,7 @@ public class SearchedTeamFragment extends Fragment {
                 params.put("team_id",Integer.toString(teamId));
                 params.put("user_id", Integer.toString(userId));
                 params.put("role", roles.getSelectedItem().toString());
+                params.put("name",fullName);
                 System.out.print(teamId + " " + userId + " " + roles.getSelectedItem().toString());
                 invokeWs(params);
             }

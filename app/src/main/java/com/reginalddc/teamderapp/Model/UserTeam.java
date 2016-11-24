@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /**
  * Created by reginalddc on 23/11/2016.
  */
-public class UserTeam {
+public class    UserTeam {
 
     private JSONObject obj;
     private static String[] teamID;

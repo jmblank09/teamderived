@@ -151,6 +151,7 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
         bundle.putString("teamDesc", data2);
         bundle.putStringArray("teamRoles", data3);
         bundle.putString("teamId", data4);
+        bundle.putString("fullName",user.getFullName());
         bundle.putInt("userId", user.getUserID());
         SearchedTeamFragment fragmentObject = new SearchedTeamFragment();
         fragmentObject.setArguments(bundle);

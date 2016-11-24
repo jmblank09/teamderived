@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Model.UnfullCreatedTeams;
 import com.reginalddc.teamderapp.R;
 
@@ -73,6 +75,25 @@ public class SearchListFragment extends ListFragment {
            }
         });
     }
+    /*private void invokeWS2(final ArrayList<UnfullCreatedTeams> teamss){
+        AsyncHttpClient team = new AsyncHttpClient();
+        final RequestParams params = new RequestParams();
+        for(int i = 0; i < teamss.size(); i++) {
+            final UnfullCreatedTeams teamer = teamss.get(i);
+            params.put("team_id",Integer.toString(teamss.get(i).getTeamId()));
+            team.get("http://107.170.61.180/android/teamderived_api/members/get_members.php",params, new AsyncHttpResponseHandler(){
+                @Override
+                public void onSuccess(String response){
+                    try{
+                        JSONArray json2 = (new JSONObject(response)).getJSONArray("members");
+                        for(int i = 0; i< json2.length();i++){
+                            teamss.get(i).retrieveMembers(json2.getJSONObject(i));
+                        }
+                    }catch(Exception e){}
+                }
+            });
+        }
+    }*/
     private void setTeamss(ArrayList<UnfullCreatedTeams> teamss){
         HashMap<String, String> map;
         for (int i = 0; i < teamss.size(); i++) {
@@ -82,20 +103,26 @@ public class SearchListFragment extends ListFragment {
             map.put("TeamDescriptions", teamss.get(i).getTeamDescription());
              for(int j = 0; j < 6; j++){
                 String role;
-                if( j < teamss.get(i).getCapacity()) {
+                if( j < teamss.get(i).getCapacity() + 1) {
                     role = teamss.get(i).getRoles()[j];
                     switch (j){
                         case 0: map.put("role1", role);
+                            map.put("role1name", teamss.get(i).getTeamLeader());
                             break;
                         case 1: map.put("role2", role);
+                            map.put("role2name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 2: map.put("role3", role);
+                            map.put("role3name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 3: map.put("role4", role);
+                            map.put("role4name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 4: map.put("role5", role);
+                            map.put("role5name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 5: map.put("role6", role);
+                            map.put("role6name",teamss.get(i).getMembers()[j - 1]);
                             break;
                     }
                 }else{
@@ -104,14 +131,19 @@ public class SearchListFragment extends ListFragment {
                         case 0: map.put("role1", role);
                             break;
                         case 1: map.put("role2", role);
+                            map.put("role2name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 2: map.put("role3", role);
+                            map.put("role3name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 3: map.put("role4", role);
+                            map.put("role4name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 4: map.put("role5", role);
+                            map.put("role5name",teamss.get(i).getMembers()[j - 1]);
                             break;
                         case 5: map.put("role6", role);
+                            map.put("role6name",teamss.get(i).getMembers()[j - 1]);
                             break;
                     }
                 }
@@ -120,12 +152,15 @@ public class SearchListFragment extends ListFragment {
             data.add(map);
         }
 
-        String [] keys = {"TeamId","TeamNames", "TeamDescriptions", "role1", "role2", "role3", "role4", "role5", "role6"};
+        String [] keys = {"TeamId","TeamNames", "TeamDescriptions", "role1", "role1name", "role2", "role2name"
+                , "role3", "role3name", "role4", "role4name", "role5", "role5name", "role6", "role6name"};
         //String [] keys = {"TeamNames", "TeamDescriptions"};
-        int[] to ={R.id.textView_teamIdsearch, R.id.TeamName_textView, R.id.textView_teamDescript, R.id.textView_role1, R.id.textView_role2, R.id.textView_role3,
-                R.id.textView_role4, R.id.textView_role5, R.id.textView_role6};
+        int[] to ={R.id.textView_teamIdsearch, R.id.TeamName_textView, R.id.textView_teamDescript, R.id.textView_role1,
+                R.id.role1name_textVIew, R.id.textView_role2, R.id.role2name_textView, R.id.textView_role3, R.id.role3name_textView,
+                R.id.textView_role4, R.id.role4name_textView, R.id.textView_role5, R.id.role5name_textView, R.id.textView_role6, R.id.role6name_textView};
         //int[] to ={R.id.TeamName_textView, R.id.textView_teamDescript};
         adapterr = new SimpleAdapter(getActivity(), data, R.layout.listview_searchresults, keys, to);
+        //adapterr = new ArrayAdapter(getActivity(), R.layout.listview_searchresults, R.id.textView_teamIdsearch, data);
         setListAdapter(adapterr);
     }
 
