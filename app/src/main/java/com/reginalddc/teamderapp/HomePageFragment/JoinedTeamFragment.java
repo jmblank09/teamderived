@@ -54,7 +54,7 @@ public class JoinedTeamFragment extends Fragment {
     private void invokeWS(RequestParams params){
         AsyncHttpClient client = new AsyncHttpClient();
 
-        client.get("107.170.61.180/android/teamderived_api/teams/get_joined_teams.php", params, new AsyncHttpResponseHandler(){
+        client.get("http://107.170.61.180/android/teamderived_api/teams/get_joined_teams.php", params, new AsyncHttpResponseHandler(){
 
             @Override
             public void onSuccess(String response){

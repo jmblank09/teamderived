@@ -144,6 +144,9 @@ public class RequestToJoinTeamAdapter extends ArrayAdapter<Team> {
                         FragmentTransaction fragmentManager = ((AppCompatActivity)getContext()).getSupportFragmentManager()
                                 .beginTransaction();
                         fragmentManager.replace(R.id.fragment_layout, new RequestToJoinTeamFragment()).commit();
+                    } else {
+                        Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_LONG).show();
+                        prgDialog.dismiss();
                     }
 
                 }catch (Exception e) {}
@@ -154,7 +157,7 @@ public class RequestToJoinTeamAdapter extends ArrayAdapter<Team> {
     private void invokeAcceptWS(RequestParams params){
         AsyncHttpClient client = new AsyncHttpClient();
 
-        client.get("http://107.170.61.180/android/teamderived_api/requests/confirm_request.php", params, new AsyncHttpResponseHandler() {
+        client.get("http://107.170.61.180/android/teamderived_api/requests/confim_request.php", params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String response) {
                 try{
@@ -165,6 +168,9 @@ public class RequestToJoinTeamAdapter extends ArrayAdapter<Team> {
                         FragmentTransaction fragmentManager = ((AppCompatActivity)getContext()).getSupportFragmentManager()
                                 .beginTransaction();
                         fragmentManager.replace(R.id.fragment_layout, new RequestToJoinTeamFragment()).commit();
+                    } else {
+                        Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_LONG).show();
+                        prgDialog.dismiss();
                     }
 
                 }catch (Exception e) {}

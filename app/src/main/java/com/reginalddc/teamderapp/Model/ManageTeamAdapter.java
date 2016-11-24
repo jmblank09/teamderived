@@ -1,5 +1,6 @@
 package com.reginalddc.teamderapp.Model;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Model.Team;
 import com.reginalddc.teamderapp.ProfileFragment.OtherProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
@@ -25,6 +27,8 @@ import java.util.ArrayList;
  */
 public class ManageTeamAdapter extends ArrayAdapter<Team> {
 
+    ProgressDialog prgDialog;
+
     public ManageTeamAdapter(Context context, ArrayList<Team> team){
         super(context, 0, team);
     }
@@ -33,6 +37,11 @@ public class ManageTeamAdapter extends ArrayAdapter<Team> {
     public View getView(final int position, View convertView, ViewGroup parent){
 
         Team team = getItem(position);
+
+        prgDialog = new ProgressDialog(getContext());
+        prgDialog.setTitle("Processing...");
+        prgDialog.setMessage("Please wait...");
+        prgDialog.setCancelable(false);
 
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_manageteam, parent, false);
@@ -64,4 +73,10 @@ public class ManageTeamAdapter extends ArrayAdapter<Team> {
 
         return convertView;
     }
+
+    private void invokeWS(RequestParams params){
+        
+    }
+
+
 }
