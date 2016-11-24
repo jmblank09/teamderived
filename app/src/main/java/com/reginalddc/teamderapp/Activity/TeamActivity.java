@@ -19,6 +19,7 @@ import com.reginalddc.teamderapp.HomePageFragment.HomeFragment;
 import com.reginalddc.teamderapp.ManageFragment.ManageTeamFragment;
 import com.reginalddc.teamderapp.ManageFragment.RequestToJoinTeamFragment;
 import com.reginalddc.teamderapp.ManageFragment.ViewTeamFragment;
+import com.reginalddc.teamderapp.Model.OtherProfile;
 import com.reginalddc.teamderapp.Model.UserCreateTeam;
 import com.reginalddc.teamderapp.Model.UserProfile;
 import com.reginalddc.teamderapp.Model.UserTeam;
@@ -123,7 +124,19 @@ public class TeamActivity extends AppCompatActivity implements ProfileFragment.O
     @Override
     public void toGotoManageTeam(){
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
+        switch (OtherProfile.getTracer()){
+            case 1:
+                fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ViewTeamFragment()).commit();
+                break;
+            case 2:
+                fragmentManager.beginTransaction().replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
+                break;
+            case 3:
+                fragmentManager.beginTransaction().replace(R.id.fragment_layout, new RequestToJoinTeamFragment()).commit();
+                break;
+            default: break;
+        }
+
     }
 
     @Override

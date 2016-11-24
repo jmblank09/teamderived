@@ -53,12 +53,12 @@ public class ViewTeamFragment extends Fragment {
         adapter.add(secondTeam);
         adapter.add(thirdTeam);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), adapter.getItem(position).teamName, Toast.LENGTH_LONG).show();
-            }
-        });
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(getContext(), adapter.getItem(position).teamName, Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         backToCreatedTeam = (TextView)fragmentView.findViewById(R.id.btn_backToCreatedTeam);
         backToCreatedTeam.setOnClickListener(new View.OnClickListener() {

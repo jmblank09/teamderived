@@ -14,11 +14,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Model.ManageTeamAdapter;
 import com.reginalddc.teamderapp.Model.RequestToJoinTeamAdapter;
 import com.reginalddc.teamderapp.Model.Team;
+import com.reginalddc.teamderapp.Model.TeamRequests;
+import com.reginalddc.teamderapp.Model.UserTeam;
 import com.reginalddc.teamderapp.R;
 
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -28,6 +34,8 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class RequestToJoinTeamFragment extends Fragment {
+
+    View fragmentView;
     TextView backToManageTeam;
     private onBacktoManageTeam _toGoBacktoManageTeam;
 
@@ -40,29 +48,52 @@ public class RequestToJoinTeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fragmentView = inflater.inflate(R.layout.fragment_request_to_join, container, false);
+        fragmentView = inflater.inflate(R.layout.fragment_request_to_join, container, false);
+
+        RequestParams params = new RequestParams();
+        params.put("team_id", UserTeam.getSelectedTeamID());
+        invokeWS(params);
+
+        return fragmentView;
+    }
+
+    public void invokeWS(RequestParams params){
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get("http://107.170.61.180/android/teamderived_api/requests/get_requests.php", params, new AsyncHttpResponseHandler(){
+
+            @Override
+            public void onSuccess(String response){
+                try{
+                    JSONObject obj = new JSONObject(response);
+                    TeamRequests teamRequests = new TeamRequests(obj);
+                    teamRequests.retrievalData();
+                    willView();
+                }catch (Exception e){}
+            }
+        });
+    }
+
+    private void willView(){
 
         ArrayList<Team> arrayOfTeam = new ArrayList<Team>();
         final RequestToJoinTeamAdapter adapter = new RequestToJoinTeamAdapter(getContext(), arrayOfTeam);
         ListView listView = (ListView) fragmentView.findViewById(R.id.listView_requestToJoinTeam);
         listView.setAdapter(adapter);
-        Team firstTeam = new Team("Alfredo Mercado", "Front-End");
-        Team secondTeam = new Team("Reginald Dela Cruz", "Back-End");
-        Team thirdTeam = new Team("Renato Decilos", "Pitcher");
-        Team fourthTeam = new Team("Michael Isiderio", "Front-End");
-        Team fifthTeam = new Team("Zishran Garces", "Back-End");
-        adapter.add(firstTeam);
-        adapter.add(secondTeam);
-        adapter.add(thirdTeam);
-        adapter.add(fourthTeam);
-        adapter.add(fifthTeam);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), adapter.getItem(position).teamName, Toast.LENGTH_LONG).show();
+        TeamRequests teamRequests = new TeamRequests();
+        String[] request_id = teamRequests.getRequestID();
+        String[] user_id = teamRequests.getUserID();
+        String[] role = teamRequests.getRole();
+        String[] name = teamRequests.getName();
+        if (request_id.length > 0){
+
+            for (int i = 0; i < request_id.length; i++){
+                Team addTeam = new Team(name[i], role[i]);
+                adapter.add(addTeam);
             }
-        });
+        }
+
 
         backToManageTeam = (TextView)fragmentView.findViewById(R.id.btn_backToManageTeam);
         backToManageTeam.setOnClickListener(new View.OnClickListener() {
@@ -71,8 +102,6 @@ public class RequestToJoinTeamFragment extends Fragment {
                 _toGoBacktoManageTeam.toGotoManageTeam();
             }
         });
-
-        return fragmentView;
     }
 
 

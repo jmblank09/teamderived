@@ -21,6 +21,7 @@ public class OtherProfile {
     private static String  otherRole;
     private static String  achievements;
     private static String  extraCo;
+    private static int tracer;
 
     public OtherProfile(){}
 
@@ -130,6 +131,14 @@ public class OtherProfile {
 
     public static void setPassword(String password) {
         OtherProfile.password = password;
+    }
+
+    public static int getTracer() {
+        return tracer;
+    }
+
+    public static void setTracer(int tracer) {
+        OtherProfile.tracer = tracer;
     }
 
     public void retrievalData(){

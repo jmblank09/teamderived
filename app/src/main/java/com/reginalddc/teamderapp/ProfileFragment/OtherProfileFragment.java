@@ -51,6 +51,7 @@ public class OtherProfileFragment extends Fragment {
             }
         });
 
+
         RequestParams params = new RequestParams();
         params.put("user_id", OtherProfile.getUserID());
         invokeWS(params);
@@ -89,16 +90,16 @@ public class OtherProfileFragment extends Fragment {
         achievements = (TextView) fragmentView.findViewById(R.id.editText_achievements);
         seminar = (TextView) fragmentView.findViewById(R.id.editText_seminars);
 
-        fname.setText(UserProfile.getFullName());
-        email.setText(UserProfile.getEmail());
-        number.setText(UserProfile.getPhoneNumber());
-        school.setText(UserProfile.getSchool());
-        course.setText(UserProfile.getCourse());
-        year.setText(UserProfile.getYearLevel());
-        mainRole.setText(UserProfile.getMainRole());
-        otherRole.setText(UserProfile.getOtherRole());
-        achievements.setText(UserProfile.getAchievements());
-        seminar.setText(UserProfile.getExtraCo());
+        fname.setText(OtherProfile.getFullName());
+        email.setText(OtherProfile.getEmail());
+        number.setText(OtherProfile.getPhoneNumber());
+        school.setText(OtherProfile.getSchool());
+        course.setText(OtherProfile.getCourse());
+        year.setText(OtherProfile.getYearLevel());
+        mainRole.setText(OtherProfile.getMainRole());
+        otherRole.setText(OtherProfile.getOtherRole());
+        achievements.setText(OtherProfile.getAchievements());
+        seminar.setText(OtherProfile.getExtraCo());
 
         try {
             String dateString = UserProfile.getBirthday();

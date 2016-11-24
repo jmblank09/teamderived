@@ -38,8 +38,9 @@ public class ViewTeamAdapter extends ArrayAdapter<Team> {
                 .beginTransaction();
         viewProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                OtherProfile.setTracer(1);
                 Toast.makeText(getContext(), "You Pressed View Profile Button", Toast.LENGTH_LONG).show();
-                //fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
+                fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
             }
         });
 

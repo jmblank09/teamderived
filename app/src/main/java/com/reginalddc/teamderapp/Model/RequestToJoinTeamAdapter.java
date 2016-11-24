@@ -27,9 +27,11 @@ public class RequestToJoinTeamAdapter extends ArrayAdapter<Team> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(final int position, View convertView, ViewGroup parent){
 
         Team team = getItem(position);
+
+
 
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_requesttojointeam, parent, false);
@@ -40,7 +42,9 @@ public class RequestToJoinTeamAdapter extends ArrayAdapter<Team> {
                 .beginTransaction();
         viewProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "You Pressed View Profile Button", Toast.LENGTH_LONG).show();
+                String[] user_id = TeamRequests.getUserID();
+                OtherProfile.setUserID(user_id[position]);
+                OtherProfile.setTracer(3);
                 fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
             }
         });
