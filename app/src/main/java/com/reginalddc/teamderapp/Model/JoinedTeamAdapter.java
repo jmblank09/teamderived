@@ -39,13 +39,6 @@ public class JoinedTeamAdapter extends ArrayAdapter<Team> {
         teamName.setText(team.teamName);
         teamDesc.setText(team.teamDesc);
 
-        viewTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "PUKE", Toast.LENGTH_LONG).show();
-            }
-        });
-
         return convertView;
     }
 }

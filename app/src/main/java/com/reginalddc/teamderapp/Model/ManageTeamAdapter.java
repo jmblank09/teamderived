@@ -34,6 +34,10 @@ public class ManageTeamAdapter extends ArrayAdapter<Team> {
 
         Team team = getItem(position);
 
+        String[] user_id = TeamMembers.getUserID();
+        OtherProfile.setUserID(user_id[position]);
+
+
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_manageteam, parent, false);
         }

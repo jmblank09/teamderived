@@ -29,8 +29,6 @@ public class ViewTeamAdapter extends ArrayAdapter<Team> {
     public View getView(int position, View convertView, ViewGroup parent){
 
         Team team = getItem(position);
-        //String[] user_id = TeamMembers.getUserID();
-        //OtherProfile.setUserID(user_id[position]);
 
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_viewteam, parent, false);
@@ -41,7 +39,7 @@ public class ViewTeamAdapter extends ArrayAdapter<Team> {
         viewProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "You Pressed View Profile Button", Toast.LENGTH_LONG).show();
-                fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
+                //fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
             }
         });
 
