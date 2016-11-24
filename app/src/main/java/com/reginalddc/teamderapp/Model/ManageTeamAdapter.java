@@ -2,8 +2,10 @@ package com.reginalddc.teamderapp.Model;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +16,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.reginalddc.teamderapp.ManageFragment.ManageTeamFragment;
+import com.reginalddc.teamderapp.ManageFragment.RequestToJoinTeamFragment;
 import com.reginalddc.teamderapp.Model.Team;
 import com.reginalddc.teamderapp.ProfileFragment.OtherProfileFragment;
 import com.reginalddc.teamderapp.ProfileFragment.ProfileFragment;
 import com.reginalddc.teamderapp.R;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -52,7 +60,7 @@ public class ManageTeamAdapter extends ArrayAdapter<Team> {
         viewProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String[] user_id = TeamMembers.getUserID();
-                OtherProfile.setUserID(user_id[position]);
+                OtherProfile.setUserID(user_id[position+1]);
                 OtherProfile.setTracer(2);
                 fragmentManager.replace(R.id.fragment_layout, new OtherProfileFragment()).commit();
             }
@@ -61,7 +69,28 @@ public class ManageTeamAdapter extends ArrayAdapter<Team> {
         ImageView deleteMember = (ImageView)convertView.findViewById(R.id.btn_delete);
         deleteMember.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "You Pressed Delete Button", Toast.LENGTH_LONG).show();
+                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getContext());
+                dlgAlert.setMessage("Are you sure you want to REMOVE this member?");
+                dlgAlert.setPositiveButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //do nothing
+                            }
+                        });
+
+                dlgAlert.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        prgDialog.show();
+                        RequestParams params = new RequestParams();
+                        String[] member_id = TeamMembers.getMemberID();
+                        String memberID = member_id[position+1];
+                        params.put("member_id", memberID);
+                        invokeWS(params);
+                    }
+                });
+
+                dlgAlert.setCancelable(true);
+                dlgAlert.create().show();
             }
         });
 
@@ -75,7 +104,24 @@ public class ManageTeamAdapter extends ArrayAdapter<Team> {
     }
 
     private void invokeWS(RequestParams params){
-        
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get("http://107.170.61.180/android/teamderived_api/members/delete_member.php", params, new AsyncHttpResponseHandler(){
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if (obj.getBoolean("success")) {
+                        Toast.makeText(getContext(), "Member has been deleted!", Toast.LENGTH_LONG).show();
+                        prgDialog.dismiss();
+                        FragmentTransaction fragmentManager = ((AppCompatActivity)getContext()).getSupportFragmentManager()
+                                .beginTransaction();
+                        fragmentManager.replace(R.id.fragment_layout, new ManageTeamFragment()).commit();
+                    }
+
+                } catch (Exception e) {}
+            }
+        });
     }
 
 

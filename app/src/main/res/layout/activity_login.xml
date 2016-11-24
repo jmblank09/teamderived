@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Get help loggin in."
+                        android:text="Get help logging in."
                         android:textSize="15sp"
                         android:textColor="#FFF"
                         android:textStyle="bold"
