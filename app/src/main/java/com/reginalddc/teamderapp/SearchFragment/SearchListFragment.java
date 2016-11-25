@@ -238,41 +238,24 @@ public class SearchListFragment extends ListFragment {
             public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
                 String tv =  ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.TeamName_textView))).getText().toString();
                 String tv2 =  ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_teamDescript))).getText().toString();
-                String [] tv3 = {"","","","","","", ""};
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role1))).getText().toString().equals("")){
-                    tv3[0] = "";
-                }else {
-                    tv3[0] = ((TextView) adapterr.getView(pos, v, null).findViewById((R.id.textView_role1))).getText().toString();
+                String [] tv3 = {"", "","","","",""};
+                if(!((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role2))).getText().toString().equals("")) {
+                    tv3[0] = ((TextView) adapterr.getView(pos, v, null).findViewById((R.id.textView_role2))).getText().toString();
                 }
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role2))).getText().toString().equals("")){
-                    tv3[1] = "";
-                }else {
-                    tv3[1] = ((TextView) adapterr.getView(pos, v, null).findViewById((R.id.textView_role2))).getText().toString();
+                if(!((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role3))).getText().toString().equals("")){
+                    tv3[1] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role3))).getText().toString();
                 }
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role3))).getText().toString().equals("")){
-                    tv3[2] = "";
-                }else{
-                    tv3[2] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role3))).getText().toString();
+                if(!((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role4))).getText().toString().equals("")){
+                    tv3[2] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role4))).getText().toString();
                 }
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role4))).getText().toString().equals("")){
-                    tv3[3] = "";
-                }else{
-                    tv3[3] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role4))).getText().toString();
+                if(!((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role5))).getText().toString().equals("")){
+                    tv3[3] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role5))).getText().toString();
                 }
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role5))).getText().toString().equals("")){
-                    tv3[3] = "";
-                }else{
-                    tv3[4] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role5))).getText().toString();
+                if(!((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role6))).getText().toString().equals("")){
+                    tv3[4] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role6))).getText().toString();
                 }
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role6))).getText().toString().equals("")){
-                    tv3[5] = "";
-                }else{
-                    tv3[5] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role6))).getText().toString();
-                }
-                if(((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role7))).getText().toString().equals("")){
-                      tv3[6] = "";
-                }else{
-                    tv3[6] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role7))).getText().toString();
+                if(!((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role7))).getText().toString().equals("")){
+                    tv3[5] = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_role7))).getText().toString();
                 }
                 String tv4 = ((TextView) adapterr.getView(pos,v,null).findViewById((R.id.textView_teamIdsearch))).getText().toString();
                 _mSendData.toGoToSearchedTeamFragment(tv, tv2, tv3, tv4);
