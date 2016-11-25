@@ -30,10 +30,9 @@ import java.util.List;
  */
 public class SearchedTeamFragment extends Fragment {
     Spinner roles;
-    String[] arraySpinner;
+    String[] arraySpinner, arraySpinner2;
     Button requestJoin;
     private GoSearch _toSearch;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,15 +46,21 @@ public class SearchedTeamFragment extends Fragment {
         final int teamId = Integer.parseInt(getArguments().getString("teamId"));
         final int userId = getArguments().getInt("userId");
         final String fullName = getArguments().getString("fullName");
+        arraySpinner = new String[0];
         arraySpinner = getArguments().getStringArray("teamRoles");
         arraySpinner[0] = arraySpinner[1];
+        //for(int i = 0;i<arraySpinner.length;i++){
+          //  arraySpinner2[i] = arraySpinner[i+1];
+        //}
         final RequestParams params = new RequestParams();
        // System.out.println(strtext);
         teamName.setText(strtext);
         teamDesc.setText(strtext2);
         roles = (Spinner)fragmentView.findViewById(R.id.spinnerRoles);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_dropdown_item_1line, arraySpinner);
+               android.R.layout.simple_dropdown_item_1line, arraySpinner);
+       // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
+         //                 android.R.layout.simple_dropdown_item_1line, arraySpinner2);
         roles.setAdapter(arrayAdapter);
 
         requestJoin = (Button) fragmentView.findViewById(R.id.btn_rqstJoin);

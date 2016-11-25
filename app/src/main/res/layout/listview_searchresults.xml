@@ -57,7 +57,7 @@
                 android:layout_alignStart="@+id/textView" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/TeamName"
@@ -197,6 +197,27 @@
                 android:layout_toRightOf="@+id/textView_role5"
                 android:layout_toEndOf="@+id/textView_role5"
                 android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/textView_role7"
+                android:layout_below="@+id/textView_role6"
+                android:layout_alignLeft="@+id/textView_role6"
+                android:layout_alignStart="@+id/textView_role6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/role7name_textView"
+                android:textColor="#333333"
+                android:layout_below="@+id/role6name_textView"
+                android:layout_toRightOf="@+id/textView_role6"
+                android:layout_toEndOf="@+id/textView_role6"
+                android:layout_marginLeft="5dp"/>
+
 
             <TextView
                 android:layout_width="wrap_content"

@@ -3,9 +3,12 @@ package com.reginalddc.teamderapp.Model;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.reginalddc.teamderapp.SearchFragment.SearchListFragment;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by masterpeps on 11/23/2016.
@@ -16,9 +19,9 @@ public class UnfullCreatedTeams {
     private String teamDescription;
     private String teamLeader;
     private int capacity;
-    private String [] roles = {"","","","","",""};
-    private String [] members = {"", "", "", "","",""};
-
+    private String [] roles = {"","","","","","",""};
+    private String [] members = {"", "", "", "","","",""};
+    private ArrayList<UnfullCreatedTeams> unfullCreatedTeams;
     public void setTeamId(int teamId){
         this.teamId = teamId;
     }
@@ -26,7 +29,6 @@ public class UnfullCreatedTeams {
     public void setTeamName(String teamName){
         this.teamName = teamName;
     }
-
     public void setTeamDescription(String teamDescription){
         this.teamDescription = teamDescription;
     }
@@ -39,7 +41,7 @@ public class UnfullCreatedTeams {
         this.roles = roles;
     }
 
-    public void setMembers(String [] members) { this.members = members;}
+    public void setMembers(String members, int i) { this.members[i] = members;}
 
     public int getTeamId(){
         return teamId;
@@ -64,7 +66,7 @@ public class UnfullCreatedTeams {
         return roles;
     }
 
-    public String[] getMembers() { return members; }
+    public String getMembers(int i) {return members[i];}
 
     public void retrievalData(JSONObject object){
         try{
@@ -77,15 +79,12 @@ public class UnfullCreatedTeams {
             String roles2 = object.getString("roles");
             role2 = roles2.split(";");
             roles[0] = "Team-Leader";
-            for(int i = 0; i <= role2.length; i++){
+            for(int i = 0; i < role2.length; i++){
                 roles[i + 1] = role2[i];
             }
-            System.out.println("gago");
-            invokeWs2();
-
-        }catch (Exception ex){}
+        }catch (Exception ex){System.out.println(ex);}
     }
-    private void invokeWs2(){
+    /*private void invokeGetMembers(){
 
         AsyncHttpClient team = new AsyncHttpClient();
         final RequestParams params = new RequestParams();
@@ -95,19 +94,45 @@ public class UnfullCreatedTeams {
             @Override
             public void onSuccess(String response){
                 try{
+                    boolean check = false;
+                    int numberOfNoRoles;
                     JSONArray json2 = (new JSONObject(response)).getJSONArray("members");
                     for(int i = 0; i< json2.length();i++){
-                        System.out.println((json2.getJSONObject(i)).getString("name"));
-                        for(int j = 0; j < capacity; j++){
-                            if((json2.getJSONObject(i)).getString("role").equals(roles[j])){
-                                members[j] = (json2.getJSONObject(i)).getString("name");
-                            }else{
-                                members[j] = "None";
+                        /*for(int j = 0; j < capacity; j++){
+                            if((json2.getJSONObject(i)).getString("role").equals(roles[j])) {
+                                members[j] = (  json2.getJSONObject(i)).getString("name");
+                                System.out.println((json2.getJSONObject(i)).getString("name"));
+                                check = true;
                             }
                         }
+                        if(!check){
+                            members[i] = "None";
+                            check = false;
+                        }*/
+                        /*if(!(json2.getJSONObject(i).getString("role").equals("Leader"))){
+                            members[i] = (json2.getJSONObject(i)).getString("name");
+                        }
+
                     }
+                    /*numberOfNoRoles = capacity - json2.length();
+                    System.out.println(numberOfNoRoles);
+                    for(int i = 0; i < numberOfNoRoles; i++){
+                        members[i + json2.length()] = "None";
+                    }*/
+                /*    checkNoMembers();
+
                 }catch(Exception e){}
             }
         });
+        //System.out.println(members[0] + "gago");
+    }*/
+
+    public void checkNoMembers(){
+
+        for(int i = 0; i < capacity; i++){
+            if(members[i].equals("")){
+               members[i] = "None";
+            }
+        }
     }
 }
