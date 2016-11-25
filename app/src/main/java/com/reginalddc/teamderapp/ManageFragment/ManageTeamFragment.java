@@ -2,9 +2,12 @@ package com.reginalddc.teamderapp.ManageFragment;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,7 @@ import com.loopj.android.http.RequestParams;
 import com.reginalddc.teamderapp.Model.ManageTeamAdapter;
 import com.reginalddc.teamderapp.Model.Team;
 import com.reginalddc.teamderapp.Model.TeamMembers;
+import com.reginalddc.teamderapp.Model.TeamRequests;
 import com.reginalddc.teamderapp.Model.UserTeam;
 import com.reginalddc.teamderapp.R;
 
@@ -35,7 +39,8 @@ import java.util.ArrayList;
 public class ManageTeamFragment extends Fragment {
 
     View fragmentView;
-    TextView backToCreatedTeam,goToRequestToJoinTeam, teamName, teamDesc;
+    ProgressDialog prgDialog;
+    TextView backToCreatedTeam,goToRequestToJoinTeam, teamName, teamDesc, deleteTeam;
     private onBacktoCreatedTeam _toGoBacktoCreatedTeam;
     private onGotoRequestTeam _toGoBacktoRequestTeam;
 
@@ -50,22 +55,10 @@ public class ManageTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         fragmentView = inflater.inflate(R.layout.fragment_manage, container, false);
 
-
-        backToCreatedTeam = (TextView)fragmentView.findViewById(R.id.btn_backToCreatedTeam);
-        backToCreatedTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                _toGoBacktoCreatedTeam.toGotoCreatedTeam();
-            }
-        });
-
-        goToRequestToJoinTeam = (TextView)fragmentView.findViewById(R.id.btn_tapHere);
-        goToRequestToJoinTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                _toGoBacktoRequestTeam.toGotoRequestTeam();
-            }
-        });
+        prgDialog = new ProgressDialog(getContext());
+        prgDialog.setTitle("Processing...");
+        prgDialog.setMessage("Please wait...");
+        prgDialog.setCancelable(false);
 
         RequestParams params = new RequestParams();
         params.put("team_id", UserTeam.getSelectedTeamID());
@@ -73,7 +66,7 @@ public class ManageTeamFragment extends Fragment {
         return fragmentView;
     }
 
-    public void invokeWS(RequestParams params){
+    private void invokeWS(RequestParams params){
 
         AsyncHttpClient client = new AsyncHttpClient();
 
@@ -104,6 +97,29 @@ public class ManageTeamFragment extends Fragment {
         });
     }
 
+    private void invokeDeleteTeam(RequestParams params) {
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get("http://107.170.61.180/android/teamderived_api/teams/delete_team.php", params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if (obj.getBoolean("success")){
+                        prgDialog.dismiss();
+                        Toast.makeText(getContext(), UserTeam.getSelectedTeamName() + " has been deleted", Toast.LENGTH_LONG).show();
+                        _toGoBacktoCreatedTeam.toGotoCreatedTeam();
+                    } else {
+                        prgDialog.dismiss();
+                        Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_LONG).show();
+                    }
+
+                }catch (Exception e) {}
+            }
+        });
+    }
+
 
     private void willView(){
 
@@ -127,6 +143,49 @@ public class ManageTeamFragment extends Fragment {
             adapter.add(addTeam);
         }
 
+
+        backToCreatedTeam = (TextView)fragmentView.findViewById(R.id.btn_backToCreatedTeam);
+        backToCreatedTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoCreatedTeam.toGotoCreatedTeam();
+            }
+        });
+
+        goToRequestToJoinTeam = (TextView)fragmentView.findViewById(R.id.btn_tapHere);
+        goToRequestToJoinTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _toGoBacktoRequestTeam.toGotoRequestTeam();
+            }
+        });
+
+        deleteTeam = (TextView) fragmentView.findViewById(R.id.btn_deleteTeam);
+        deleteTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getContext());
+                dlgAlert.setMessage("Are you sure you want to DELETE " + UserTeam.getSelectedTeamName() + "?");
+                dlgAlert.setPositiveButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //do nothing
+                            }
+                        });
+
+                dlgAlert.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        prgDialog.show();
+                        RequestParams params = new RequestParams();
+                        params.put("team_id", UserTeam.getSelectedTeamID());
+                        invokeDeleteTeam(params);
+                    }
+                });
+
+                dlgAlert.setCancelable(true);
+                dlgAlert.create().show();
+            }
+        });
     }
 
 

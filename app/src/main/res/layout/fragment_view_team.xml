@@ -11,16 +11,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="◄ View Team"
-            android:id="@+id/btn_backToCreatedTeam"
-            android:textColor="@color/titletextColor"
-            android:textStyle="bold"
-            android:textSize="27sp"
-            android:layout_marginLeft="15dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="◄ View Team"
+                android:id="@+id/btn_backToCreatedTeam"
+                android:textColor="@color/titletextColor"
+                android:textStyle="bold"
+                android:textSize="27sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="4dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/delete_team"
+                android:paddingTop="2dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="3dp"
+                android:layout_alignParentRight="true"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/btn_leaveTeam"
+                    android:text="Leave"
+                    android:textColor="@color/red"/>
+            </RelativeLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:orientation="horizontal"
