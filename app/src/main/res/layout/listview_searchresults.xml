@@ -106,6 +106,7 @@
                 android:text=""
                 android:id="@+id/role2name_textView"
                 android:textColor="#333333"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/role1name_textVIew"
                 android:layout_alignLeft="@+id/role1name_textVIew"
                 android:layout_alignStart="@+id/role1name_textVIew" />
@@ -125,6 +126,7 @@
                 android:text=""
                 android:id="@+id/role3name_textView"
                 android:textColor="#333333"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/role2name_textView"
                 android:layout_alignLeft="@+id/role2name_textView"
                 android:layout_alignStart="@+id/role2name_textView" />
@@ -144,6 +146,7 @@
                 android:text=""
                 android:id="@+id/role4name_textView"
                 android:textColor="#333333"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/role3name_textView"
                 android:layout_alignLeft="@+id/role3name_textView"
                 android:layout_alignStart="@+id/role3name_textView" />
@@ -163,9 +166,10 @@
                 android:text=""
                 android:id="@+id/role5name_textView"
                 android:textColor="#333333"
-                android:layout_alignTop="@+id/textView_role5"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@+id/role4name_textView"
                 android:layout_alignLeft="@+id/role4name_textView"
-                android:layout_alignStart="@+id/role4name_textView" />
+                android:layout_alignStart="@+id/role4name_textView"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -193,10 +197,10 @@
                 android:text=""
                 android:id="@+id/role6name_textView"
                 android:textColor="#333333"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/role5name_textView"
-                android:layout_toRightOf="@+id/textView_role5"
-                android:layout_toEndOf="@+id/textView_role5"
-                android:layout_marginLeft="5dp"/>
+                android:layout_alignLeft="@+id/role5name_textView"
+                android:layout_alignStart="@+id/role5name_textView"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -213,10 +217,10 @@
                 android:text=""
                 android:id="@+id/role7name_textView"
                 android:textColor="#333333"
+                android:layout_marginLeft="5dp"
                 android:layout_below="@+id/role6name_textView"
-                android:layout_toRightOf="@+id/textView_role6"
-                android:layout_toEndOf="@+id/textView_role6"
-                android:layout_marginLeft="5dp"/>
+                android:layout_alignLeft="@+id/role6name_textView"
+                android:layout_alignStart="@+id/role6name_textView"/>
 
 
             <TextView

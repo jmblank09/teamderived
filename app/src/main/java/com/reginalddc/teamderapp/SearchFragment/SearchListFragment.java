@@ -46,7 +46,7 @@ public class SearchListFragment extends ListFragment {
 
     View rootView = null;
     ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
-    SimpleAdapter adapterr;
+    SimpleAdapter adapterr = null;
     // TODO: Rename and change types of parameters
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
